@@ -119,7 +119,11 @@
 			<artifactId>xstream</artifactId>
 			<version>1.4.1</version>
 		</dependency>
-
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>3.3.1</version>
+		</dependency>
 		<dependency>
 			<groupId>spy</groupId>
 			<artifactId>spymemcached</artifactId>

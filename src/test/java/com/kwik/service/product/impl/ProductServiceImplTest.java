@@ -1,6 +1,7 @@
 package com.kwik.service.product.impl;
 
 import static br.com.six2six.fixturefactory.Fixture.from;
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.anyString;
@@ -52,6 +53,13 @@ public class ProductServiceImplTest extends DatabaseTestHelper {
 		verify(repository).save(product);
 	}
 	
+	@Test
+	public void shouldListProducts() throws Exception {
+		
+		productService.listProducts();
+		
+		verify(repository).listAll();
+	}
 	
 	@Test
 	public void shouldAddProductsInCache() throws Exception {

@@ -4,6 +4,7 @@ import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.Rule;
 
 import com.kwik.fixture.ProdutoSpike;
+import com.kwik.models.Category;
 import com.kwik.models.Product;
 
 public class TemplateLoader {
@@ -26,6 +27,18 @@ public class TemplateLoader {
 			Fixture.of(Product.class).addTemplate(CAMISETA_BRANCA,
 			new Rule() {{ 
 				add("description", "Uma camiseta branca marota");
+			}});
+		}
+	}
+	
+	public static class CategoryTemplate {
+		
+		public static final String CATEGORIA_ROUPAS = "categoria-roupas";
+		
+		public static void loadTemplates() {
+			Fixture.of(Category.class).addTemplate(CATEGORIA_ROUPAS,
+			new Rule() {{ 
+				add("description", "Roupas");
 			}});
 		}
 	}

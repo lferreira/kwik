@@ -6,4 +6,6 @@ public interface ProductRepository {
 	
 	public Product save(Product produto);
 
+	public Product update(Product returned);
+
 }

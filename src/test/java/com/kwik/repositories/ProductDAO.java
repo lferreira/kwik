@@ -15,9 +15,14 @@ public class ProductDAO implements ProductRepository {
 	}
 
 	@Override
-	public Product save(Product produto) {
-		Product resultado = produto;
-		entityManager.persist(resultado);
-		return resultado;
+	public Product save(Product product) {
+		Product result = product;
+		entityManager.persist(result);
+		return result;
+	}
+
+	@Override
+	public Product update(Product product) {
+		return entityManager.merge(product);
 	}
 }

@@ -21,8 +21,10 @@ public class ProductRepositoryTest extends DatabaseTestHelper {
 	
 	@Before
 	public void setUp() {
-		produtoRepository = new ProductDAO(entityManager);
+		
 		loadTemplates();
+		
+		produtoRepository = new ProductDAO(entityManager);
 		
 		product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
 	}
@@ -30,6 +32,17 @@ public class ProductRepositoryTest extends DatabaseTestHelper {
 	@Test
 	public void shouldIncludeNewProduct() throws Exception {
 		Product returned = produtoRepository.save(product);
-		assertThat(product.getDescription(), equalTo(returned.getDescription()));
+		assertThat(returned.getDescription(), equalTo(product.getDescription()));
 	}
+
+	@Test
+	public void shouldUpdateProductDescription() throws Exception {
+		
+		Product returned = produtoRepository.save(product);
+		returned.setDescription("Na verdade essa camiseta tem uma logo");
+		
+		Product updated = produtoRepository.update(returned);
+		assertThat(updated.getDescription(), equalTo(product.getDescription()));
+	}
+	
 }

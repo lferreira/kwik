@@ -10,6 +10,7 @@ import javax.persistence.Persistence;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.mockito.MockitoAnnotations;
 
 public abstract class DatabaseTestHelper {
 
@@ -32,6 +33,8 @@ public abstract class DatabaseTestHelper {
 	public void before() {
 		transaction = entityManager.getTransaction();
 		transaction.begin();
+		
+		MockitoAnnotations.initMocks(this);
 	}
 	
 	@After

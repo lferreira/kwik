@@ -20,4 +20,9 @@ public class CategoryDAO implements CategoryRepository {
 		entityManager.merge(result);
 		return result;
 	}
+
+	@Override
+	public Category update(Category category) {
+		return entityManager.merge(category);
+	}
 }

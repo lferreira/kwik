@@ -6,4 +6,6 @@ public interface CategoryRepository {
 
 	Category save(Category category);
 
+	Category update(Category categoryReturned);
+
 }

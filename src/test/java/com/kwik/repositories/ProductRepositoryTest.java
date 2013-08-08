@@ -35,6 +35,7 @@ public class ProductRepositoryTest extends DatabaseTestHelper {
 	@Test
 	public void shouldIncludeNewProduct() throws Exception {
 		Product returned = produtoRepository.save(product);
+		
 		assertThat(returned.getDescription(), equalTo(product.getDescription()));
 	}
 
@@ -45,15 +46,15 @@ public class ProductRepositoryTest extends DatabaseTestHelper {
 		returned.setDescription("Na verdade essa camiseta tem uma logo");
 		
 		Product updated = produtoRepository.update(returned);
+		
 		assertThat(updated.getDescription(), equalTo(product.getDescription()));
 	}
 
 	@Test
 	public void shouldListProducts() throws Exception {
-		
 		new DBUnitHelper().cleanInsert("/products/tenProducts.xml");
-		
 		List<Product> products = produtoRepository.listAll();
+		
 		assertThat(products.size(), equalTo(10));
 	}
 }

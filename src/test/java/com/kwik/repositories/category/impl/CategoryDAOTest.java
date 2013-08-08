@@ -1,4 +1,4 @@
-package com.kwik.repositories.produto.impl;
+package com.kwik.repositories.category.impl;
 
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.junit.Assert.assertThat;
@@ -11,7 +11,7 @@ import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Category;
 import com.kwik.repositories.CategoryRepository;
-import com.kwik.repositories.categoria.impl.CategoryDAO;
+import com.kwik.repositories.category.impl.CategoryDAO;
 
 public class CategoryDAOTest extends DatabaseTestHelper {
 

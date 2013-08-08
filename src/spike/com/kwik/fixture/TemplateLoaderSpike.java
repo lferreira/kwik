@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import br.com.six2six.fixturefactory.Fixture;
 
-import com.kwik.fixture.load.TemplateLoader.ProdutoTemplate;
+import com.kwik.fixture.load.TemplateLoader.ProductTemplate;
 
 public class TemplateLoaderSpike {
 
@@ -19,7 +19,7 @@ public class TemplateLoaderSpike {
 	
 	@Test
 	public void fixtureFactoryReadyToWork() throws Exception {
-		ProdutoSpike produto = Fixture.from(ProdutoSpike.class).gimme(ProdutoTemplate.CAMISETA_P_FOR_SPIKE);
+		ProdutoSpike produto = Fixture.from(ProdutoSpike.class).gimme(ProductTemplate.CAMISETA_BRANCA_FOR_SPIKE);
 		assertNotNull(produto);
 	}
 	

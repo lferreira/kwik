@@ -1,4 +1,4 @@
-package app.models;
+package com.kwik.models;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

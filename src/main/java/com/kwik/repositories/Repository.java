@@ -1,4 +1,4 @@
-package app.repositories;
+package com.kwik.repositories;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;

@@ -7,4 +7,7 @@
 	<persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
     </persistence-unit>
 
+	<persistence-unit name="test" transaction-type="RESOURCE_LOCAL">
+    </persistence-unit>
+
 </persistence>

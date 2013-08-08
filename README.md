@@ -1,6 +1,9 @@
 kwik
 ====
 
+Solução
+============================================================================
+
 Arquitetura
 ============================================================================
 
@@ -17,3 +20,7 @@ http://brew.sh/
 - Instalando o Memcached
 
 <code>brew install memcached</code>
+
+- Iniciando o Memcached
+
+<code>memcached -vv</code>

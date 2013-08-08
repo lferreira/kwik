@@ -10,6 +10,8 @@ public class Product {
 	@Id @GeneratedValue
 	private Long id;
 
+	private Double value;
+	
 	private String description;
 	
 	public Long getId() {
@@ -22,5 +24,13 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Double getValue() {
+		return value;
+	}
+
+	public void setValue(Double value) {
+		this.value = value;
 	}
 }

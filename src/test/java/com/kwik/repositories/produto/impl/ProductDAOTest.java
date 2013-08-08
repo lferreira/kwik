@@ -3,14 +3,12 @@ package com.kwik.repositories.produto.impl;
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
 import javax.persistence.PersistenceException;
 
-import org.hamcrest.Matchers;
 import org.jstryker.database.DBUnitHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,7 +45,8 @@ public class ProductDAOTest extends DatabaseTestHelper {
 	public void shouldUpdateProductDescription() throws Exception {
 		
 		Product returned = produtoRepository.save(product);
-		returned.setDescription("Na verdade essa camiseta tem uma logo");
+		
+		returned.setDescription(descriptionDummy("Na verdade essa camiseta tem uma logo"));
 		
 		Product updated = produtoRepository.update(returned);
 		
@@ -74,5 +73,8 @@ public class ProductDAOTest extends DatabaseTestHelper {
 		Product returned = produtoRepository.save(product);
 		assertThat(returned.getSpecifics(), is(product.getSpecifics()));
 	}
-	
+
+	private String descriptionDummy(String description) {
+		return description;
+	}
 }

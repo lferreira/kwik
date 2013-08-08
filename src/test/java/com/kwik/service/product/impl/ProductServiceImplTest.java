@@ -15,7 +15,6 @@ import net.spy.memcached.MemcachedClientIF;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import br.com.six2six.fixturefactory.Fixture;
 

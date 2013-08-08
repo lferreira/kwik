@@ -27,10 +27,12 @@ public class ProductDAOTest extends DatabaseTestHelper {
 		produtoRepository = new ProductDAO(entityManager);
 		
 		product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
+		
 	}
 
 	@Test
 	public void shouldIncludeNewProduct() throws Exception {
+		
 		Product returned = produtoRepository.save(product);
 		
 		assertThat(returned.getDescription(), equalTo(product.getDescription()));
@@ -49,7 +51,9 @@ public class ProductDAOTest extends DatabaseTestHelper {
 
 	@Test
 	public void shouldListProducts() throws Exception {
+		
 		new DBUnitHelper().cleanInsert("/products/tenProducts.xml");
+		
 		List<Product> products = produtoRepository.listAll();
 		
 		assertThat(products.size(), equalTo(10));

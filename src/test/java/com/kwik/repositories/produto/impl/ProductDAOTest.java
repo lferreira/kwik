@@ -2,12 +2,15 @@ package com.kwik.repositories.produto.impl;
 
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
 import javax.persistence.PersistenceException;
 
+import org.hamcrest.Matchers;
 import org.jstryker.database.DBUnitHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -64,6 +67,12 @@ public class ProductDAOTest extends DatabaseTestHelper {
 	@Test(expected = PersistenceException.class)
 	public void shouldValidateEmptyDescription() throws Exception {
 		produtoRepository.save(new Product());
+	}
+	
+	@Test
+	public void shouldAddSpecificsForProdut() throws Exception {
+		Product returned = produtoRepository.save(product);
+		assertThat(returned.getSpecifics(), is(product.getSpecifics()));
 	}
 	
 }

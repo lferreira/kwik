@@ -18,7 +18,7 @@ import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Category;
 import com.kwik.models.Product;
 import com.kwik.repositories.CategoryRepository;
-import com.kwik.repositories.produto.impl.ProductDAO;
+import com.kwik.repositories.product.impl.ProductDAO;
 
 public class CategoryDAOTest extends DatabaseTestHelper {
 

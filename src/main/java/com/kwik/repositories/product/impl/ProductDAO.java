@@ -1,4 +1,4 @@
-package com.kwik.repositories.produto.impl;
+package com.kwik.repositories.product.impl;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.kwik.models.Product;
-import com.kwik.repositories.produto.ProductRepository;
+import com.kwik.repositories.product.ProductRepository;
 
 
 public class ProductDAO implements ProductRepository {

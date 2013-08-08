@@ -1,4 +1,4 @@
-package com.kwik.repositories.produto;
+package com.kwik.repositories.product;
 
 import java.util.List;
 

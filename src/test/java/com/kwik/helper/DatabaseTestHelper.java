@@ -1,6 +1,7 @@
 package com.kwik.helper;
 
 import static com.kwik.fixture.load.TemplateLoader.loadTemplatesForFixture;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,7 +11,6 @@ import javax.persistence.Persistence;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.mockito.MockitoAnnotations;
 
 public abstract class DatabaseTestHelper {
 
@@ -34,7 +34,7 @@ public abstract class DatabaseTestHelper {
 		transaction = entityManager.getTransaction();
 		transaction.begin();
 		
-		MockitoAnnotations.initMocks(this);
+		initMocks(this);
 	}
 	
 	@After

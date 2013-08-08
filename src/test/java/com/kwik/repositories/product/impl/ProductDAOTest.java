@@ -1,4 +1,4 @@
-package com.kwik.repositories.produto.impl;
+package com.kwik.repositories.product.impl;
 
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.hamcrest.Matchers.equalTo;
@@ -16,7 +16,7 @@ import org.junit.Test;
 import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Product;
-import com.kwik.repositories.produto.ProductRepository;
+import com.kwik.repositories.product.ProductRepository;
 
 public class ProductDAOTest extends DatabaseTestHelper {
 
@@ -30,7 +30,6 @@ public class ProductDAOTest extends DatabaseTestHelper {
 		produtoRepository = new ProductDAO(entityManager);
 		
 		product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
-		
 	}
 
 	@Test
@@ -73,7 +72,7 @@ public class ProductDAOTest extends DatabaseTestHelper {
 		Product returned = produtoRepository.save(product);
 		assertThat(returned.getSpecifics(), is(product.getSpecifics()));
 	}
-
+	
 	private String descriptionDummy(String description) {
 		return description;
 	}

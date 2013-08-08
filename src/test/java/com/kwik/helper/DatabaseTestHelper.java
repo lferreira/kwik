@@ -5,7 +5,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import org.junit.AfterClass;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.BeforeClass;
 
 public abstract class DatabaseTestHelper {
@@ -17,17 +18,21 @@ public abstract class DatabaseTestHelper {
 	protected static EntityManagerFactory factory;
 
 	@BeforeClass
-	public static void setup() {
+	public static void beforeClass() {
 
 	    factory = Persistence.createEntityManagerFactory("test");
 		entityManager = factory.createEntityManager();
-		transaction = entityManager.getTransaction();
+	}
 
+	@Before
+	public void before() {
+		transaction = entityManager.getTransaction();
 		transaction.begin();
 	}
-
-	@AfterClass
-	public static void after() {
-		transaction.commit();
+	
+	@After
+	public void tearDown() {
+		entityManager.getTransaction().rollback();
 	}
+
 }

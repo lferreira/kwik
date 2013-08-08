@@ -145,6 +145,12 @@
 			<version>2.1.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.jstryker</groupId>
+			<artifactId>jstryker</artifactId>
+			<version>1.0.3</version>
+			<scope>test</scope>
+		</dependency>
 
 		<!-- Provided dependencies -->
 		<dependency>

@@ -1,6 +1,9 @@
 package com.kwik.repositories;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import com.kwik.models.Product;
 import com.kwik.repositories.produto.ProductRepository;
@@ -24,5 +27,15 @@ public class ProductDAO implements ProductRepository {
 	@Override
 	public Product update(Product product) {
 		return entityManager.merge(product);
+	}
+
+	@Override
+	public List<Product> listAll() {
+		Query query = entityManager.createQuery("FROM " + Product.class.getName());
+
+		@SuppressWarnings("unchecked")
+		List<Product> resultList = query.getResultList();
+
+		return resultList;
 	}
 }

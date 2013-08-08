@@ -5,6 +5,10 @@ import static com.kwik.fixture.load.TemplateLoader.loadTemplates;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
+import java.util.List;
+
+import org.jstryker.database.DBUnitHelper;
+import org.jstryker.database.JPAHelper;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -44,5 +48,13 @@ public class ProductRepositoryTest extends DatabaseTestHelper {
 		Product updated = produtoRepository.update(returned);
 		assertThat(updated.getDescription(), equalTo(product.getDescription()));
 	}
-	
+
+	@Test
+	public void shouldListProducts() throws Exception {
+		
+		new DBUnitHelper().cleanInsert("/products/tenProducts.xml");
+		
+		List<Product> products = produtoRepository.listAll();
+		assertThat(products.size(), equalTo(10));
+	}
 }

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<product id="1"  description="Camiseta StarWars - Darth Vader - Preta" />
+	<product id="2"  description="Camiseta StarWars - Darth Vader - Branca" />
+	<product id="3"  description="Camiseta StarWars - Darth Vader - Azul" />
+	<product id="4"  description="Camiseta StarWars - Darth Vader - Verde" />
+	<product id="5"  description="Camiseta StarWars - Darth Vader - Amarela" />
+	<product id="6"  description="Camiseta StarWars - Darth Vader - Vermelha" />
+	<product id="7"  description="Camiseta StarWars - Darth Vader - Roxa" />
+	<product id="8"  description="Camiseta StarWars - Darth Vader - Cinza" />
+	<product id="9"  description="Camiseta StarWars - Darth Vader - Rosa" />
+	<product id="10" description="Camiseta StarWars - Darth Vader - Transparente" />
+</dataset>

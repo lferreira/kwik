@@ -27,7 +27,7 @@ public class ProductDAOTest extends DatabaseTestHelper {
 	@Before
 	public void setUp() {
 		
-		produtoRepository = new ProductDAO(entityManager);
+		produtoRepository = new ProductDao(entityManager);
 		
 		product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
 	}

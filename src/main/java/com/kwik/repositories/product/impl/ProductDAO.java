@@ -9,11 +9,11 @@ import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
 
 
-public class ProductDAO implements ProductRepository {
+public class ProductDao implements ProductRepository {
 
 	private EntityManager entityManager;
 	
-	public ProductDAO(EntityManager entityManager) {
+	public ProductDao(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
 

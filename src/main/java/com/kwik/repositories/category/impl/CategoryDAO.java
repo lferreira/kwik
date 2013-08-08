@@ -5,11 +5,11 @@ import javax.persistence.EntityManager;
 import com.kwik.models.Category;
 import com.kwik.repositories.CategoryRepository;
 
-public class CategoryDAO implements CategoryRepository {
+public class CategoryDao implements CategoryRepository {
 
 	private EntityManager entityManager;
 
-	public CategoryDAO(EntityManager entityManager) {
+	public CategoryDao(EntityManager entityManager) {
 		super();
 		this.entityManager = entityManager;
 	}

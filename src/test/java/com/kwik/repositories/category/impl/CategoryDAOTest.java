@@ -18,9 +18,9 @@ import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Category;
 import com.kwik.models.Product;
 import com.kwik.repositories.CategoryRepository;
-import com.kwik.repositories.product.impl.ProductDAO;
+import com.kwik.repositories.product.impl.ProductDao;
 
-public class CategoryDAOTest extends DatabaseTestHelper {
+public class CategoryDaoTest extends DatabaseTestHelper {
 
 	private CategoryRepository categoryRepository;
 	
@@ -31,7 +31,7 @@ public class CategoryDAOTest extends DatabaseTestHelper {
 	@Before
 	public void setUp() {
 		
-		categoryRepository = new CategoryDAO(entityManager);
+		categoryRepository = new CategoryDao(entityManager);
 		
 		category = from(Category.class).gimme(TemplateLoader.CategoryTemplate.CATEGORIA_ROUPAS);
 	}
@@ -56,7 +56,7 @@ public class CategoryDAOTest extends DatabaseTestHelper {
 		
 		new DBUnitHelper().cleanInsert("/products/tenProducts.xml");
 
-		List<Product> products = new ProductDAO(entityManager).listAll();
+		List<Product> products = new ProductDao(entityManager).listAll();
 		
 		categoryReturned.add(products);
 		

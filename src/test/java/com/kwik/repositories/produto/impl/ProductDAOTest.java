@@ -1,7 +1,6 @@
 package com.kwik.repositories.produto.impl;
 
 import static br.com.six2six.fixturefactory.Fixture.from;
-import static com.kwik.fixture.load.TemplateLoader.loadTemplates;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
@@ -15,7 +14,6 @@ import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Product;
 import com.kwik.repositories.produto.ProductRepository;
-import com.kwik.repositories.produto.impl.ProductDAO;
 
 public class ProductDAOTest extends DatabaseTestHelper {
 
@@ -25,8 +23,6 @@ public class ProductDAOTest extends DatabaseTestHelper {
 	
 	@Before
 	public void setUp() {
-		
-		loadTemplates();
 		
 		produtoRepository = new ProductDAO(entityManager);
 		

@@ -1,5 +1,7 @@
 package com.kwik.helper;
 
+import static com.kwik.fixture.load.TemplateLoader.loadTemplates;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -19,9 +21,11 @@ public abstract class DatabaseTestHelper {
 
 	@BeforeClass
 	public static void beforeClass() {
-
+		
 	    factory = Persistence.createEntityManagerFactory("test");
 		entityManager = factory.createEntityManager();
+		
+		loadTemplates();
 	}
 
 	@Before

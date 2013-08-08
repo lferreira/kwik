@@ -5,10 +5,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import br.com.caelum.vraptor.ioc.Component;
+
 import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
 
-
+@Component
 public class ProductDao implements ProductRepository {
 
 	private EntityManager entityManager;

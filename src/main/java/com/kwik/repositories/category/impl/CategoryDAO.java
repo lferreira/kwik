@@ -2,9 +2,12 @@ package com.kwik.repositories.category.impl;
 
 import javax.persistence.EntityManager;
 
+import br.com.caelum.vraptor.ioc.Component;
+
 import com.kwik.models.Category;
 import com.kwik.repositories.CategoryRepository;
 
+@Component
 public class CategoryDao implements CategoryRepository {
 
 	private EntityManager entityManager;

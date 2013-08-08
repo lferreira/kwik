@@ -1,7 +1,6 @@
 package com.kwik.service.product.impl;
 
 import static br.com.six2six.fixturefactory.Fixture.from;
-import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.anyString;

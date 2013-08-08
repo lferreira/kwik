@@ -50,7 +50,7 @@ public class CategoryDAOTest extends DatabaseTestHelper {
 	}
 	
 	@Test
-	public void shouldAssociateManyProducts() throws Exception {
+	public void shouldAssociateProducts() throws Exception {
 		
 		categoryReturned = categoryRepository.save(category);
 		
@@ -63,7 +63,5 @@ public class CategoryDAOTest extends DatabaseTestHelper {
 		Category updated = categoryRepository.update(categoryReturned);
 		
 		assertThat(updated.getProducts(), is(products));
-		
 	}
-
 }

@@ -8,7 +8,6 @@ import static org.junit.Assert.assertThat;
 import java.util.List;
 
 import org.jstryker.database.DBUnitHelper;
-import org.jstryker.database.JPAHelper;
 import org.junit.Before;
 import org.junit.Test;
 

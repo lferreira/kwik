@@ -1,5 +1,6 @@
 package com.kwik.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,10 +10,11 @@ public class Product {
 
 	@Id @GeneratedValue
 	private Long id;
-
-	private Double value;
 	
+	@Column(nullable = false)
 	private String description;
+	
+	private Double value;
 	
 	public Long getId() {
 		return id;

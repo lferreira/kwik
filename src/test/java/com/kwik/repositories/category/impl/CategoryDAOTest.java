@@ -3,6 +3,8 @@ package com.kwik.repositories.category.impl;
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.junit.Assert.assertThat;
 
+import javax.persistence.PersistenceException;
+
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +13,6 @@ import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Category;
 import com.kwik.repositories.CategoryRepository;
-import com.kwik.repositories.category.impl.CategoryDAO;
 
 public class CategoryDAOTest extends DatabaseTestHelper {
 
@@ -31,6 +32,11 @@ public class CategoryDAOTest extends DatabaseTestHelper {
 	public void shouldIncludeNewCategory() throws Exception {
 		Category returned = categoryRepository.save(category);
 		assertThat(returned.getDescription(), Matchers.equalTo(category.getDescription()));
+	}
+	
+	@Test(expected = PersistenceException.class)
+	public void shoulValidateEmptyDescription() throws Exception {
+		categoryRepository.save(new Category());
 	}
 	
 }

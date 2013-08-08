@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
+import javax.persistence.PersistenceException;
+
 import org.jstryker.database.DBUnitHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -58,4 +60,10 @@ public class ProductDAOTest extends DatabaseTestHelper {
 		
 		assertThat(products.size(), equalTo(10));
 	}
+	
+	@Test(expected = PersistenceException.class)
+	public void shouldValidateEmptyDescription() throws Exception {
+		produtoRepository.save(new Product());
+	}
+	
 }

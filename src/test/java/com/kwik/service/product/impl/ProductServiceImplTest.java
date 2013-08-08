@@ -1,5 +1,6 @@
 package com.kwik.service.product.impl;
 
+import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.anyString;
@@ -40,6 +41,17 @@ public class ProductServiceImplTest extends DatabaseTestHelper {
 		
 		productService = new ProductServiceImpl(repository, cacheClient);
 	}
+	
+	@Test
+	public void shouldIncludeNewProduct() throws Exception {
+		
+		Product product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
+		
+		productService.save(product);
+		
+		verify(repository).save(product);
+	}
+	
 	
 	@Test
 	public void shouldAddProductsInCache() throws Exception {

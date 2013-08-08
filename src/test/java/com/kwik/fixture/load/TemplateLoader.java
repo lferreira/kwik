@@ -9,8 +9,9 @@ import com.kwik.models.Product;
 
 public class TemplateLoader {
 
-	public static void loadTemplates() {
+	public static void loadTemplatesForFixture() {
 		TemplateLoader.ProductTemplate.loadTemplates();
+		TemplateLoader.CategoryTemplate.loadTemplates();
 	}
 
 	public static class ProductTemplate {

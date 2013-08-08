@@ -1,6 +1,6 @@
 package com.kwik.fixture;
 
-import static com.kwik.fixture.load.TemplateLoader.loadTemplates;
+import static com.kwik.fixture.load.TemplateLoader.loadTemplatesForFixture;
 import static junit.framework.Assert.assertNotNull;
 
 import org.junit.Before;
@@ -14,7 +14,7 @@ public class TemplateLoaderSpike {
 
 	@Before
 	public void setUp() {
-		loadTemplates();
+		loadTemplatesForFixture();
 	}
 	
 	@Test

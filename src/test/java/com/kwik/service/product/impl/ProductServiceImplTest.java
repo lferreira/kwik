@@ -7,7 +7,6 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +35,6 @@ public class ProductServiceImplTest extends DatabaseTestHelper {
 	
 	@Before
 	public void setUp() {
-		
-		initMocks(this);
-		
 		productService = new ProductServiceImpl(repository, cache);
 	}
 	

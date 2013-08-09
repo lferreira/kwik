@@ -25,4 +25,7 @@ public class IndexController {
 		result.use(json()).from(products).include("products").serialize();
 	}
 
+	private void lastIncludedProducts() {
+		
+	}
 }

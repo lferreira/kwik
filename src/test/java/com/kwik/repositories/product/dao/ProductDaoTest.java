@@ -1,4 +1,4 @@
-package com.kwik.repositories.product.impl;
+package com.kwik.repositories.product.dao;
 
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.hamcrest.Matchers.equalTo;
@@ -17,6 +17,7 @@ import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
+import com.kwik.repositories.product.dao.ProductDao;
 
 public class ProductDaoTest extends DatabaseTestHelper {
 

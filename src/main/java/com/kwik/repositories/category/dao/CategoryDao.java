@@ -1,4 +1,4 @@
-package com.kwik.repositories.category.impl;
+package com.kwik.repositories.category.dao;
 
 import javax.persistence.EntityManager;
 

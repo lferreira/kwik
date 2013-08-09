@@ -1,4 +1,4 @@
-package com.kwik.repositories.category.impl;
+package com.kwik.repositories.category.dao;
 
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.hamcrest.Matchers.is;
@@ -18,7 +18,8 @@ import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Category;
 import com.kwik.models.Product;
 import com.kwik.repositories.category.CategoryRepository;
-import com.kwik.repositories.product.impl.ProductDao;
+import com.kwik.repositories.category.dao.CategoryDao;
+import com.kwik.repositories.product.dao.ProductDao;
 
 public class CategoryDaoTest extends DatabaseTestHelper {
 

@@ -1,4 +1,4 @@
-package com.kwik.repositories.product.impl;
+package com.kwik.repositories.product.dao;
 
 import java.util.List;
 

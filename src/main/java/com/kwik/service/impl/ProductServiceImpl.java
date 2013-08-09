@@ -3,12 +3,15 @@ package com.kwik.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.caelum.vraptor.ioc.Component;
+
 import com.google.common.collect.Lists;
 import com.kwik.infra.cache.Cache;
 import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
 import com.kwik.service.ProductService;
 
+@Component
 public class ProductServiceImpl implements ProductService {
 
 	private static final String KEY = "allProducts";

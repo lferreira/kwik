@@ -21,9 +21,9 @@ public class Product {
 	@Column(nullable = false)
 	private Double value;
 	
-	@Column(name="created", nullable = false)
+	@Column(name="createdAt", nullable = false)
 	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
-    private LocalDateTime created = LocalDateTime.now();
+    private LocalDateTime createdAt = LocalDateTime.now();
 	
 	@OneToOne
 	private Specifics specifics;
@@ -60,11 +60,7 @@ public class Product {
 		this.id = id;
 	}
 
-	public LocalDateTime getCreated() {
-		return created;
-	}
-
-	public void setCreated(LocalDateTime created) {
-		this.created = created;
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
 	}
 }

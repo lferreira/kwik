@@ -21,11 +21,12 @@ public class IndexController {
 	}
 
 	public void index() {
+		latestIncludedProducts();
+	}
+
+	private void latestIncludedProducts() {
 		List<Product> products = service.listProducts();
 		result.use(json()).from(products).include("products").serialize();
 	}
 
-	private void lastIncludedProducts() {
-		
-	}
 }

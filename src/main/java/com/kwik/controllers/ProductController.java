@@ -32,7 +32,7 @@ public class ProductController {
 		
 		validator.checking(new Validations() { {
 			that(isNotEmpty(product.getDescription()), "erro", "description.is.required");
-			that(product.getValue() != null && product.getValue() > 0, "erro", "description.is.required");
+			that(product.getValue() != null && product.getValue() > 0, "erro", "value.is.required");
 		} });
 		
 		validator.onErrorRedirectTo(this);

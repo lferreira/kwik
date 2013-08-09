@@ -1,31 +1,44 @@
 package com.kwik.controllers;
 
-import static org.junit.Assert.*;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static br.com.caelum.vraptor.view.Results.json;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Spy;
 
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.util.test.MockResult;
 
-public class IndexControllerTest {
+import com.kwik.helper.DatabaseTestHelper;
+import com.kwik.models.Product;
+import com.kwik.service.ProductsService;
+
+public class IndexControllerTest extends DatabaseTestHelper {
 
 	private @Spy Result result = new MockResult();
+	
+	private @Mock ProductsService service;
 	
 	private IndexController controller;
 	
 	@Before
 	public void setUp() throws Exception {
-		controller = new IndexController(result);
+		controller = new IndexController(service, result);
 	}
 	
 	@Test
-	public void shouldListIncludedProducts() throws Exception {
-
+	public void shouldListIncludedProductsJson() throws Exception {
+		
+		when(service.listProducts()).thenReturn(new ArrayList<Product>());
+		
 		controller.index();
 		
+		verify(result).use(json());
 	}
 	
 }

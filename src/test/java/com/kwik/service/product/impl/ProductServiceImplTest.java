@@ -9,9 +9,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import net.spy.memcached.MemcachedClientIF;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +20,7 @@ import br.com.six2six.fixturefactory.Fixture;
 
 import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.DatabaseTestHelper;
+import com.kwik.infra.cache.Cache;
 import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
 import com.kwik.service.ProductService;
@@ -28,7 +28,7 @@ import com.kwik.service.impl.ProductServiceImpl;
 
 public class ProductServiceImplTest extends DatabaseTestHelper {
 
-	private @Mock MemcachedClientIF cacheClient;
+	private @Mock Cache<Product> cacheClient;
 
 	private @Mock ProductRepository repository;
 	
@@ -60,6 +60,7 @@ public class ProductServiceImplTest extends DatabaseTestHelper {
 		verify(repository).listAll();
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void shouldAddProductsInCache() throws Exception {
 		
@@ -67,16 +68,16 @@ public class ProductServiceImplTest extends DatabaseTestHelper {
 		
 		productService.listProducts();
 		
-		verify(cacheClient).add(anyString(), anyInt(), anyObject());
+		verify(cacheClient).put(anyString(), anyInt(), (ArrayList<Product>) anyObject());
 	}
 	
 	@Test
 	public void shouldGetProductsFromCache() throws Exception {
 		
-		List<Object> products = Fixture.from(Product.class).gimme(10, TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
+		List<Product> products = Fixture.from(Product.class).gimme(10, TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
 		
-		when(cacheClient.get(anyString())).thenReturn(products);
+		when(cacheClient.getList(anyString())).thenReturn(products);
 		
-		verify(cacheClient, never()).add(anyString(), anyInt(), anyObject());;
+		verify(cacheClient, never()).put(anyString(), anyInt(), (Product) anyObject());;
 	}
 }

@@ -10,4 +10,6 @@ public interface Cache<T> {
 	
 	T get(String key);
 	
+	Collection<T> getList(String key);
+	
 }

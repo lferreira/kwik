@@ -18,7 +18,7 @@ import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
 
-public class ProductDAOTest extends DatabaseTestHelper {
+public class ProductDaoTest extends DatabaseTestHelper {
 
 	private ProductRepository produtoRepository;
 	

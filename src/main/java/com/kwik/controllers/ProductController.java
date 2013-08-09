@@ -10,7 +10,7 @@ import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.Validations;
 
 import com.kwik.models.Product;
-import com.kwik.service.ProductsService;
+import com.kwik.service.ProductService;
 
 @Resource
 public class ProductController {
@@ -19,9 +19,9 @@ public class ProductController {
 
 	private Validator validator;
 	
-	private ProductsService service;
+	private ProductService service;
 	
-	public ProductController(final ProductsService service, final Result result, final Validator validator) {
+	public ProductController(final ProductService service, final Result result, final Validator validator) {
 		this.service = service;
 		this.result = result;
 		this.validator = validator;

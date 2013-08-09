@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.kwik.models.Product;
 
-public interface ProductsService {
+public interface ProductService {
 
 	List<Product> listProducts();
 

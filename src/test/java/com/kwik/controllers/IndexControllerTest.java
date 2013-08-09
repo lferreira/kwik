@@ -16,13 +16,13 @@ import br.com.caelum.vraptor.util.test.MockResult;
 
 import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Product;
-import com.kwik.service.ProductsService;
+import com.kwik.service.ProductService;
 
 public class IndexControllerTest extends DatabaseTestHelper {
 
 	private @Spy Result result = new MockResult();
 	
-	private @Mock ProductsService service;
+	private @Mock ProductService service;
 	
 	private IndexController controller;
 	

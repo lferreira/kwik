@@ -23,7 +23,7 @@ import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
-import com.kwik.service.ProductsService;
+import com.kwik.service.ProductService;
 import com.kwik.service.impl.ProductServiceImpl;
 
 public class ProductServiceImplTest extends DatabaseTestHelper {
@@ -32,7 +32,7 @@ public class ProductServiceImplTest extends DatabaseTestHelper {
 
 	private @Mock ProductRepository repository;
 	
-	private ProductsService productService;
+	private ProductService productService;
 	
 	@Before
 	public void setUp() {

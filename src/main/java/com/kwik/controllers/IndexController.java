@@ -10,16 +10,16 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
 import com.kwik.models.Product;
-import com.kwik.service.ProductsService;
+import com.kwik.service.ProductService;
 
 @Resource
 public class IndexController {
 
-	private ProductsService service;
+	private ProductService service;
 	
 	private Result result;
 	
-	public IndexController(final ProductsService service, final Result result) {
+	public IndexController(final ProductService service, final Result result) {
 		this.service = service;
 		this.result = result;
 	}

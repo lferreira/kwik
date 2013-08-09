@@ -18,7 +18,7 @@ import br.com.caelum.vraptor.validator.ValidationException;
 import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Product;
-import com.kwik.service.ProductsService;
+import com.kwik.service.ProductService;
 
 public class ProductControllerTest extends DatabaseTestHelper {
 
@@ -26,7 +26,7 @@ public class ProductControllerTest extends DatabaseTestHelper {
 	
 	private @Spy Validator validator = new MockValidator();
 	
-	private @Mock ProductsService service;
+	private @Mock ProductService service;
 	
 	private ProductController controller;
 	

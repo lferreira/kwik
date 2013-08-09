@@ -40,20 +40,20 @@ public class CategoryDaoTest extends DatabaseTestHelper {
 	@Test
 	public void shouldIncludeNewCategory() throws Exception {
 		
-		categoryReturned = categoryRepository.save(category);
+		categoryReturned = categoryRepository.add(category);
 		
 		assertThat(categoryReturned.getDescription(), Matchers.equalTo(category.getDescription()));
 	}
 	
 	@Test(expected = PersistenceException.class)
 	public void shoulValidateEmptyDescription() throws Exception {
-		categoryRepository.save(new Category());
+		categoryRepository.add(new Category());
 	}
 	
 	@Test
 	public void shouldAssociateProducts() throws Exception {
 		
-		categoryReturned = categoryRepository.save(category);
+		categoryReturned = categoryRepository.add(category);
 		
 		new DBUnitHelper().cleanInsert("/products/tenProducts.xml");
 

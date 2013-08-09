@@ -40,13 +40,13 @@ public class ProductControllerTest extends DatabaseTestHelper {
 	
 	@Test
 	public void shouldIncludeNewProduct() throws Exception {
-		controller.save(product);
-		verify(service).save(product);
+		controller.add(product);
+		verify(service).add(product);
 	}
 	
 	@Test(expected = ValidationException.class)
 	public void shouldValidateRequiredFields() throws Exception {
-		controller.save(new Product());
+		controller.add(new Product());
 	}
 	
 	@Test

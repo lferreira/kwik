@@ -28,7 +28,7 @@ public class ProductController {
 	}
 	
 	@Post
-	public void save(final Product product) {
+	public void add(final Product product) {
 		
 		validator.checking(new Validations() { {
 			that(isNotEmpty(product.getDescription()), "erro", "description.is.required");
@@ -37,7 +37,7 @@ public class ProductController {
 		
 		validator.onErrorRedirectTo(this);
 		
-		service.save(product);
+		service.add(product);
 	}
 
 	@Get

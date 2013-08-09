@@ -36,7 +36,7 @@ public class ProductDaoTest extends DatabaseTestHelper {
 	@Test
 	public void shouldIncludeNewProduct() throws Exception {
 		
-		Product returned = produtoRepository.save(product);
+		Product returned = produtoRepository.add(product);
 		
 		assertThat(returned.getDescription(), equalTo(product.getDescription()));
 	}
@@ -44,7 +44,7 @@ public class ProductDaoTest extends DatabaseTestHelper {
 	@Test
 	public void shouldUpdateProductDescription() throws Exception {
 		
-		Product returned = produtoRepository.save(product);
+		Product returned = produtoRepository.add(product);
 		
 		returned.setDescription(descriptionDummy("Na verdade essa camiseta tem uma logo"));
 		
@@ -65,12 +65,12 @@ public class ProductDaoTest extends DatabaseTestHelper {
 	
 	@Test(expected = PersistenceException.class)
 	public void shouldValidateEmptyDescription() throws Exception {
-		produtoRepository.save(new Product());
+		produtoRepository.add(new Product());
 	}
 	
 	@Test
 	public void shouldAddSpecificsForProdut() throws Exception {
-		Product returned = produtoRepository.save(product);
+		Product returned = produtoRepository.add(product);
 		assertThat(returned.getSpecifics(), is(product.getSpecifics()));
 	}
 	

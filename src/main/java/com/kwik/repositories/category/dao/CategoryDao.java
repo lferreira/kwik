@@ -18,7 +18,7 @@ public class CategoryDao implements CategoryRepository {
 	}
 
 	@Override
-	public Category save(Category category) {
+	public Category add(Category category) {
 		Category result = category;
 		entityManager.merge(result);
 		return result;

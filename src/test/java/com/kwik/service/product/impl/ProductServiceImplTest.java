@@ -47,9 +47,9 @@ public class ProductServiceImplTest extends DatabaseTestHelper {
 		
 		Product product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
 		
-		productService.save(product);
+		productService.add(product);
 		
-		verify(repository).save(product);
+		verify(repository).add(product);
 	}
 	
 	@Test

@@ -6,7 +6,7 @@ import com.kwik.models.Product;
 
 public interface ProductRepository {
 	
-	public Product save(Product product);
+	public Product add(Product product);
 
 	public Product update(Product product);
 

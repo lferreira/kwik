@@ -20,7 +20,7 @@ public class ProductDao implements ProductRepository {
 	}
 
 	@Override
-	public Product save(Product product) {
+	public Product add(Product product) {
 		Product result = product;
 		entityManager.persist(result);
 		return result;

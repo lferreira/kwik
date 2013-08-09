@@ -1,5 +1,6 @@
 package com.kwik.controllers;
 
+import static br.com.caelum.vraptor.view.Results.json;
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.mockito.Mockito.verify;
 
@@ -46,5 +47,13 @@ public class ProductControllerTest extends DatabaseTestHelper {
 	@Test(expected = ValidationException.class)
 	public void shouldValidateRequiredFields() throws Exception {
 		controller.save(new Product());
+	}
+	
+	@Test
+	public void shouldExposeProductCatalog() throws Exception {
+		controller.list();
+		
+		verify(service).listProducts();
+		verify(result).use(json());
 	}
 }

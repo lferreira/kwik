@@ -1,6 +1,10 @@
 package com.kwik.controllers;
 
+import static br.com.caelum.vraptor.view.Results.json;
 import static org.apache.commons.lang.StringUtils.isNotEmpty;
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.Validations;
@@ -8,6 +12,7 @@ import br.com.caelum.vraptor.validator.Validations;
 import com.kwik.models.Product;
 import com.kwik.service.ProductsService;
 
+@Resource
 public class ProductController {
 	
 	private Result result;
@@ -22,6 +27,7 @@ public class ProductController {
 		this.validator = validator;
 	}
 	
+	@Post
 	public void save(final Product product) {
 		
 		validator.checking(new Validations() { {
@@ -32,5 +38,10 @@ public class ProductController {
 		validator.onErrorRedirectTo(this);
 		
 		service.save(product);
+	}
+
+	@Get
+	public void list() {
+		result.use(json()).from(service.listProducts()).include("products").serialize();
 	}
 }

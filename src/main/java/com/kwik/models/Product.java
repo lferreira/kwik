@@ -18,6 +18,7 @@ public class Product {
 	@Column(nullable = false)
 	private String description;
 	
+	@Column(nullable = false)
 	private Double value;
 	
 	@Column(name="created", nullable = false)

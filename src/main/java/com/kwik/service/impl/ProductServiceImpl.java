@@ -15,13 +15,13 @@ public class ProductServiceImpl implements ProductService {
 
 	private static final int ONE_HOUR = 3600;
 
-	private Cache<Product> cacheClient;
+	private Cache<Product> cache;
 
 	private ProductRepository repository;
 	
 	public ProductServiceImpl(ProductRepository repository, Cache<Product> cacheClient) {
 		super();
-		this.cacheClient = cacheClient;
+		this.cache = cacheClient;
 		this.repository = repository;
 	}
 
@@ -31,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
 		
 		List<Product> products = Lists.newArrayList();
 		
-		Object cached = cacheClient.get(KEY);
+		Object cached = cache.get(KEY);
 		
 		if (cached != null) {
 			
@@ -40,7 +40,7 @@ public class ProductServiceImpl implements ProductService {
 		} else {
 			
 			products = repository.listAll();
-			cacheClient.put(KEY, ONE_HOUR, products);
+			cache.put(KEY, ONE_HOUR, products);
 		}
 		
 		return products;

@@ -5,7 +5,7 @@ import javax.persistence.EntityManager;
 import br.com.caelum.vraptor.ioc.Component;
 
 import com.kwik.models.Category;
-import com.kwik.repositories.CategoryRepository;
+import com.kwik.repositories.category.CategoryRepository;
 
 @Component
 public class CategoryDao implements CategoryRepository {

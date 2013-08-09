@@ -28,7 +28,7 @@ import com.kwik.service.impl.ProductServiceImpl;
 
 public class ProductServiceImplTest extends DatabaseTestHelper {
 
-	private @Mock Cache<Product> cacheClient;
+	private @Mock Cache<Product> cache;
 
 	private @Mock ProductRepository repository;
 	
@@ -39,7 +39,7 @@ public class ProductServiceImplTest extends DatabaseTestHelper {
 		
 		initMocks(this);
 		
-		productService = new ProductServiceImpl(repository, cacheClient);
+		productService = new ProductServiceImpl(repository, cache);
 	}
 	
 	@Test
@@ -64,11 +64,11 @@ public class ProductServiceImplTest extends DatabaseTestHelper {
 	@Test
 	public void shouldAddProductsInCache() throws Exception {
 		
-		when(cacheClient.get(anyString())).thenReturn(null);
+		when(cache.get(anyString())).thenReturn(null);
 		
 		productService.listProducts();
 		
-		verify(cacheClient).put(anyString(), anyInt(), (ArrayList<Product>) anyObject());
+		verify(cache).put(anyString(), anyInt(), (ArrayList<Product>) anyObject());
 	}
 	
 	@Test
@@ -76,8 +76,8 @@ public class ProductServiceImplTest extends DatabaseTestHelper {
 		
 		List<Product> products = Fixture.from(Product.class).gimme(10, TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
 		
-		when(cacheClient.getList(anyString())).thenReturn(products);
+		when(cache.getList(anyString())).thenReturn(products);
 		
-		verify(cacheClient, never()).put(anyString(), anyInt(), (Product) anyObject());;
+		verify(cache, never()).put(anyString(), anyInt(), (Product) anyObject());;
 	}
 }

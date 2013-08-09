@@ -1,4 +1,4 @@
-package com.kwik.repositories;
+package com.kwik.repositories.category;
 
 import com.kwik.models.Category;
 

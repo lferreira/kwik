@@ -2,31 +2,33 @@ package com.kwik.infra.cache.client;
 
 import java.util.Collection;
 
+import br.com.caelum.vraptor.ioc.ApplicationScoped;
 import br.com.caelum.vraptor.ioc.Component;
 
 import com.kwik.infra.cache.Cache;
-import com.kwik.models.Product;
 
 @Component
-public class CacheClient implements Cache<Product> {
+@ApplicationScoped
+public class CacheClient implements Cache<Object> {
 
+	
 	@Override
-	public void put(String key, int time, Product t) {
-		// TODO Auto-generated method stub
+	public void put(String key, int time, Object t) {
+	
 	}
 
 	@Override
-	public void put(String key, int time, Collection<Product> t) {
-		// TODO Auto-generated method stub
+	public void put(String key, int time, Collection<Object> t) {
+
 	}
 
 	@Override
-	public Product get(String key) {
+	public Object get(String key) {
 		return null;
 	}
 
 	@Override
-	public Collection<Product> getList(String key) {
+	public Collection<Object> getList(String key) {
 		return null;
 	}
 }

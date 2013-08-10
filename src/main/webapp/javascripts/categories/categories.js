@@ -1,11 +1,24 @@
 $(document).ready(function(){
+	form.config = {
+		'list':'/kwik/category/list',
+		'add': '/kwik/category/add', 
+		'clone': function(category, row) {
+			$('td[name=description]', row).text(category.description);
+		}
+	};
 	form.init();
 });
 
 var form = {
-	init: function() {
+	
+	config: {
+		list: '',
+		add: '',
+		clone: function(){}
+	},	
+	init: function(config) {
 		form.list();
-		$('#btnAdd').click(function() {
+		$('#btnAdd').on('click', function() {
 			form.add();
 		});
 	},
@@ -13,7 +26,7 @@ var form = {
 		form.clear();
 	    $.ajax({  
 			type: 'GET',  
-			url: '/kwik/category/list',  
+			url: form.config.list,  
 			cache: false,  
 			success: function( data ) {  
 				if (data != null) {
@@ -25,7 +38,7 @@ var form = {
 	add: function() {
 	    $.ajax({  
 			type: 'POST',  
-			url: '/kwik/category/add',  
+			url: form.config.add,  
 			data: {  
 				'category.description' : $('#description').val(),  
 			},
@@ -51,6 +64,6 @@ var form = {
 	clone: function(category) {
 		var row = $('div#model table>tbody>tr').clone();
 		$('table#list tbody').append(row);
-		$('td[name=description]', row).text(category.description);
+		form.config.clone(category, row);
 	}
 }

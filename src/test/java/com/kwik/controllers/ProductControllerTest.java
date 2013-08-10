@@ -16,11 +16,11 @@ import br.com.caelum.vraptor.util.test.MockValidator;
 import br.com.caelum.vraptor.validator.ValidationException;
 
 import com.kwik.fixture.load.TemplateLoader;
-import com.kwik.helper.DatabaseTestHelper;
+import com.kwik.helper.TestHelper;
 import com.kwik.models.Product;
 import com.kwik.service.ProductService;
 
-public class ProductControllerTest extends DatabaseTestHelper {
+public class ProductControllerTest extends TestHelper {
 
 	private @Spy Result result = new MockResult();
 	
@@ -53,7 +53,6 @@ public class ProductControllerTest extends DatabaseTestHelper {
 	public void shouldExposeProductCatalog() throws Exception {
 		controller.list();
 		
-		verify(service).listProducts();
 		verify(result).use(json());
 	}
 }

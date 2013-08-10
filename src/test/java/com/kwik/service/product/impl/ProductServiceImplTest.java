@@ -18,14 +18,14 @@ import org.mockito.Mock;
 import br.com.six2six.fixturefactory.Fixture;
 
 import com.kwik.fixture.load.TemplateLoader;
-import com.kwik.helper.DatabaseTestHelper;
+import com.kwik.helper.TestHelper;
 import com.kwik.infra.cache.Cache;
 import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
 import com.kwik.service.ProductService;
 import com.kwik.service.impl.ProductServiceImpl;
 
-public class ProductServiceImplTest extends DatabaseTestHelper {
+public class ProductServiceImplTest extends TestHelper {
 
 	private @Mock Cache<Product> cache;
 

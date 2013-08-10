@@ -10,12 +10,15 @@ var form = {
 		});
 	},
 	list: function() {
+		form.clear();
 	    $.ajax({  
 			type: 'GET',  
 			url: '/kwik/product/list',  
 			cache: false,  
-			success: function( data ) {  
-				form.row(data);
+			success: function( data ) { 
+				if (data != null) {			
+					form.row(data);
+				}	
 			}  
 		}); 		
 	},
@@ -30,16 +33,17 @@ var form = {
 			},
 			cache: false,  
 			success: function( data ) {  
-				form.row(data);
+				form.list();
 			}  
 		});  
 	},
 	clear: function() {
-		$('form')[0].reset();
+		if ($('form')[0]) {
+			$('form')[0].reset();
+		}
 		$('table#list tbody').empty();
 	},
 	row: function(data) {
-		form.clear();
 		$.each(data, function() {
 			$.each(this, function(k, product) {
 				form.clone(product);

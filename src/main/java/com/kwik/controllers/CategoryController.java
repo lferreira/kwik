@@ -13,38 +13,38 @@ import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.com.caelum.vraptor.view.Results;
 
-import com.kwik.models.Product;
-import com.kwik.service.ProductService;
+import com.kwik.models.Category;
+import com.kwik.service.CategoryService;
 
 @Resource
-public class ProductController {
+public class CategoryController {
+
+	private CategoryService service;
 	
 	private Result result;
-
+	
 	private Validator validator;
 	
-	private ProductService service;
-	
-	public ProductController(final ProductService service, final Result result, final Validator validator) {
+	public CategoryController(final CategoryService service, final Result result, final Validator validator) {
 		this.service = service;
 		this.result = result;
 		this.validator = validator;
 	}
-	
+
 	@Get
 	public void add() {}
 	
 	@Post
-	public void add(final Product product) {
-		valid(product);
-		service.add(product);
+	public void add(Category category) {
+		valid(category);
+		service.add(category);
 		result.use(Results.status()).ok();
 	}
-	
+
 	@Get
 	public void list() {
 		
-		List<Product> list = service.listProducts();
+		List<Category> list = (List<Category>) service.listAll();
 		
 		if (list.isEmpty()) {
 			result.use(Results.status()).noContent();
@@ -53,14 +53,10 @@ public class ProductController {
 		}
 	}
 	
-	private void valid(final Product product) {
-		if (isNullOrEmpty(product.getName())) {
-			validator.add(new ValidationMessage("erro", "name.is.required"));
-		} else if (isNullOrEmpty(product.getDescription())) {
+	private void valid(final Category category) {
+		if (isNullOrEmpty(category.getDescription())) {
 			validator.add(new ValidationMessage("erro", "description.is.required"));
-		} else if (product.getValue() == null || product.getValue() < 0) {
-			validator.add(new ValidationMessage("erro", "value.is.required"));
-		}
+		} 
 		validator.onErrorRedirectTo(this);
 	}
 }

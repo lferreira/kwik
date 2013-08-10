@@ -1,3 +1,11 @@
+<form id="category" class="form-horizontal well" name="category">
+	<fieldset>
+		<div class="control-group">
+			<input name="category.description" id="description" type="text" />
+			<input name="add" id="btnAdd" value="add" type="button" class="btn btn-primary btn-large nav pull-right" />
+		</div>
+	</fieldset>
+</form>
 <table id="list">
 	<thead>
 		<tr>

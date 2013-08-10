@@ -14,12 +14,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.kwik.fixture.load.TemplateLoader;
-import com.kwik.helper.DatabaseTestHelper;
+import com.kwik.helper.TestHelper;
 import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
 import com.kwik.repositories.product.dao.ProductDao;
 
-public class ProductDaoTest extends DatabaseTestHelper {
+public class ProductDaoTest extends TestHelper {
 
 	private ProductRepository produtoRepository;
 	

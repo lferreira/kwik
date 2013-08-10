@@ -15,13 +15,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.kwik.fixture.load.TemplateLoader;
-import com.kwik.helper.DatabaseTestHelper;
+import com.kwik.helper.TestHelper;
 import com.kwik.models.Category;
 import com.kwik.models.Product;
 import com.kwik.repositories.category.CategoryRepository;
 import com.kwik.repositories.product.dao.ProductDao;
 
-public class CategoryDaoTest extends DatabaseTestHelper {
+public class CategoryDaoTest extends TestHelper {
 
 	private CategoryRepository categoryRepository;
 	

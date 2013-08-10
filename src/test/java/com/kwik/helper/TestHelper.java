@@ -12,7 +12,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
-public abstract class DatabaseTestHelper {
+public abstract class TestHelper {
 
 	protected static EntityManager entityManager;
 

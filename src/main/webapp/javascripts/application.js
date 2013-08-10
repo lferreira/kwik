@@ -4,9 +4,20 @@ $(document).ready(function(){
 
 var form = {
 	init: function() {
+		form.list();
 		$('#btnAdd').click(function() {
 			form.add();
 		});
+	},
+	list: function() {
+	    $.ajax({  
+			type: 'GET',  
+			url: '/kwik/product/list',  
+			cache: false,  
+			success: function( data ) {  
+				form.row(data);
+			}  
+		}); 		
 	},
 	add: function() {
 	    $.ajax({  
@@ -24,9 +35,9 @@ var form = {
 		});  
 	},
 	clear: function() {
+		$('form')[0].reset();
 		$('table#list tbody').empty();
-	}
-	,
+	},
 	row: function(data) {
 		form.clear();
 		$.each(data, function() {

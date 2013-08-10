@@ -10,7 +10,9 @@
     <decorator:head/>
   </head>
   <body>
+  	<a id="swatch-link" href="<c:url value="/product/add"/>">produtos</a>
     <decorator:body/>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/application.js"></script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 package com.kwik.controllers;
 
-import static br.com.caelum.vraptor.view.Results.json;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -32,13 +31,14 @@ public class IndexControllerTest extends DatabaseTestHelper {
 	}
 	
 	@Test
-	public void shouldListIncludedProductsJson() throws Exception {
+	public void shouldListIncludedProducts() throws Exception {
 		
-		when(service.listProducts()).thenReturn(new ArrayList<Product>());
+		ArrayList<Product> products = new ArrayList<Product>();
+		when(service.listProducts()).thenReturn(products);
 		
 		controller.index();
 		
-		verify(result).use(json());
+		verify(result).include("products", products);
 	}
 	
 }

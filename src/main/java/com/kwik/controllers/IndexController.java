@@ -1,7 +1,5 @@
 package com.kwik.controllers;
 
-import static br.com.caelum.vraptor.view.Results.json;
-
 import java.util.List;
 
 import br.com.caelum.vraptor.Get;
@@ -32,7 +30,6 @@ public class IndexController {
 	@Get
 	private void latestIncludedProducts() {
 		List<Product> products = service.listProducts();
-		result.use(json()).from(products).include("products").serialize();
+		result.include("products", products);
 	}
-
 }

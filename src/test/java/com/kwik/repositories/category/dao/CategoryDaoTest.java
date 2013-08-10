@@ -4,6 +4,7 @@ import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.PersistenceException;
@@ -18,7 +19,6 @@ import com.kwik.helper.DatabaseTestHelper;
 import com.kwik.models.Category;
 import com.kwik.models.Product;
 import com.kwik.repositories.category.CategoryRepository;
-import com.kwik.repositories.category.dao.CategoryDao;
 import com.kwik.repositories.product.dao.ProductDao;
 
 public class CategoryDaoTest extends DatabaseTestHelper {
@@ -64,5 +64,18 @@ public class CategoryDaoTest extends DatabaseTestHelper {
 		Category updated = categoryRepository.update(categoryReturned);
 		
 		assertThat(updated.getProducts(), is(products));
+	}
+	
+	@Test
+	public void shoulListCategoriesWithProducts() throws Exception {
+		
+		new DBUnitHelper().cleanInsert("/categories/twoCategoriesWith2Products.xml");
+		
+		Collection<Category> categories = categoryRepository.listAll();
+		assertThat(categories.size(), is(2));
+		
+		for (Category category : categories) {
+			assertThat(category.getProducts().size(), is(2));
+		}
 	}
 }

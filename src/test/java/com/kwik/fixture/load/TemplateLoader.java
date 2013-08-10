@@ -29,6 +29,7 @@ public class TemplateLoader {
 			}});
 			Fixture.of(Product.class).addTemplate(CAMISETA_BRANCA,
 			new Rule() {{ 
+				add("name", "Camiseta");
 				add("description", "Uma camiseta branca marota");
 				add("value", 100.00);
 				add("specifics", one(Specifics.class, SpecificsTemplate.ESPECIFICACOES_CAMISETA));

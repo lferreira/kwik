@@ -1,6 +1,10 @@
 package com.kwik.repositories.category.dao;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -27,5 +31,15 @@ public class CategoryDao implements CategoryRepository {
 	@Override
 	public Category update(Category category) {
 		return entityManager.merge(category);
+	}
+
+	@Override
+	public Collection<Category> listAll() {
+		Query query = entityManager.createQuery("FROM " + Category.class.getName());
+
+		@SuppressWarnings("unchecked")
+		List<Category> resultList = query.getResultList();
+
+		return resultList;
 	}
 }

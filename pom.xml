@@ -118,17 +118,13 @@
 			<groupId>org.jadira.usertype</groupId>
 			<artifactId>usertype.core</artifactId>
 			<version>3.0.0.CR1</version>
-		</dependency>			
+		</dependency>
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
 			<artifactId>xstream</artifactId>
 			<version>1.4.1</version>
 		</dependency>
-		<dependency>
-			<groupId>asm</groupId>
-			<artifactId>asm</artifactId>
-			<version>3.3.1</version>
-		</dependency>
+
 		<dependency>
 			<groupId>spy</groupId>
 			<artifactId>spymemcached</artifactId>

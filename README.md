@@ -35,8 +35,7 @@ No momento era a solução mais rápida , mais simples de implementar e com melh
 onde será muito simples trocar a implementação se for necessário
 
 
-MAC
----
+* MAC
 
 Instalando no Mac com Homebrew
 
@@ -46,8 +45,8 @@ Iniciando o Memcached
 
 <code>$ memcached -vv</code>
 
-Windows
--------
+* Windows
+
 
 Memcached 1.4.5 Windows (64-bit) - http://downloads.northscale.com/memcached-1.4.5-amd64.zip<br/>
 Memcached 1.4.5 Windows (32-bit) - http://downloads.northscale.com/memcached-1.4.5-x86.zip
@@ -60,8 +59,7 @@ Iniciando o Memcached
 
 Executar <MEMCACHED_HOME>/bin/memcached.exe
 
-Linux
------
+* Linux
 
 <code>:~$ sudo apt-get install memcached</code>
 
@@ -71,7 +69,7 @@ Iniciando o Memcached
 
 
 MySQL
-----------------------------------------------------------------------------
+============================================================================
 
 Instalando no Mac com Homebrew
 
@@ -93,4 +91,19 @@ Isso é um erro de permissão no diretório /usr/local/var/mysql.
 <code>$ rm -Rf /usr/local/var/mysql/Your-Machine-Name.local.err</code>
 
 <code>$ mysql.server start </code>
+
+
+Ativando Segurança do Mysql
+
+<code>
+$ mysql_secure_installation
+ 
+Set root password? [Y/n] Y
+Remove anonymous users? [Y/n] Y
+Disallow root login remotely? [Y/n] Y
+Remove test database and access to it? [Y/n] Y
+Reload privilege tables now? [Y/n] Y
+</code>
+
+
 

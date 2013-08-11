@@ -1,11 +1,40 @@
 kwik
 ====
 
-Solução
+Arquitetura/Solução
 ============================================================================
 
-Arquitetura
-============================================================================
+O Backend da aplicação foi inteiramente desenvolvido utilizando Java, pois é a linguagem que me sinto mais confortável
+em utitilizar no momento. Como uma das premissas do desafio era não utilizar frameworks "component based" escolhi o VRaptor
+que é um framework "action-based" , leve , poderoso de alta produtividade e o mais importante , a Testabilidade é muito boa.
+Apesar de ter utilizado o VRaptor , procurei desacoplar as páginas do backend , ou seja todos as chamadas aos controllers são REST
+com ajax do jquery e não estou utilizando nenhuma tag jsp , apenas html/css/js puro.
+
+Para os testes utilizei uma série de Test-Doubles e Helpers
+
+- DBunit com Jstryker 
+ 
+Apesar de utilizar o DB todos os testes da camada Dao são unitários e foram "driven development" pois estou utilizando um
+banco de dados "In Memory" que é o HSQLDB o que torna esse tipo de teste rápido e executável sem depência nenhuma seguido os xUnit Test Patterns.
+
+- Mockito
+ 
+Para as suites que exigiram teste de comportamento, e ajudar nas "expectativas" dos testes. 
+
+- Fixture Factory
+
+Para organizar a criação dos objetos para o "System Under Test" , criei uma classe TemplateLoader onde estão as minhas fixtures
+
+- Hamcrest
+
+Para facilitar nas Assertivas e legibilidade dos testes
+
+- Helpers
+
+Criei uma classe chamada TestHelper essa qual todos os testes extendem , apesar das classes serem totalmente dependentes dela
+foi por uma boa causa , pois os teste ficaram bem mais enxutos pois toda a responsabilidade de carregar, criar conexão, inicializar
+os mocks , ou seja , toda a tarefa repetitiva e necessária para todos os testes estão nessa classe.
+
 
 Ambiente
 ============================================================================

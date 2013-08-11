@@ -43,7 +43,7 @@ Iniciando o Memcached
 Windows
 -------
 
-Memcached 1.4.5 Windows (64-bit) - http://downloads.northscale.com/memcached-1.4.5-amd64.zip
+Memcached 1.4.5 Windows (64-bit) - http://downloads.northscale.com/memcached-1.4.5-amd64.zip<br/>
 Memcached 1.4.5 Windows (32-bit) - http://downloads.northscale.com/memcached-1.4.5-x86.zip
 
 Instalando no windows

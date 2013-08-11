@@ -21,7 +21,7 @@ http://brew.sh/
 Memcached
 ----------------------------------------------------------------------------
 
-Porque ?
+Por quê ?
 ------
 
 No momento era a solução mais rápida , mais simples de implementar e com melhor resultado,

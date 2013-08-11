@@ -88,6 +88,7 @@ Para mim apareceu um erro : “ERROR! The server quit without updating PID file�
 Isso é um erro de permissão no diretório /usr/local/var/mysql. 
 
 <code>$ sudo chmod -R 755 /usr/local/var/mysql</code>
+
 <code>$ rm -Rf /usr/local/var/mysql/Your-Machine-Name.local.err</code>
 
 <code>$ mysql.server start </code>
@@ -95,15 +96,14 @@ Isso é um erro de permissão no diretório /usr/local/var/mysql.
 
 Ativando Segurança do Mysql
 
-<code>
-$ mysql_secure_installation
+<code>$ mysql_secure_installation</code>
  
-Set root password? [Y/n] Y
-Remove anonymous users? [Y/n] Y
-Disallow root login remotely? [Y/n] Y
-Remove test database and access to it? [Y/n] Y
-Reload privilege tables now? [Y/n] Y
-</code>
+Set root password? [Y/n] Y</br>
+Remove anonymous users? [Y/n] Y</br>
+Disallow root login remotely? [Y/n] Y</br>
+Remove test database and access to it? [Y/n] Y</br>
+Reload privilege tables now? [Y/n] Y</br>
+
 
 
 

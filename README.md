@@ -8,7 +8,7 @@ O Backend da aplicação foi inteiramente desenvolvido utilizando Java, pois é 
 em utitilizar no momento. Como uma das premissas do desafio era não utilizar frameworks "component based" escolhi o VRaptor
 que é um framework "action-based" , leve , poderoso de alta produtividade e o mais importante , a Testabilidade é muito boa.
 Apesar de ter utilizado o VRaptor , procurei desacoplar as páginas do backend , ou seja todos as chamadas aos controllers são REST
-com ajax do jquery e não estou utilizando nenhuma tag jsp , apenas html/css/js puro.
+com ajax/jquery e não estou utilizando nenhuma tag jsp , apenas html/css/js puro.
 
 Para os testes utilizei uma série de Test-Doubles e Helpers
 

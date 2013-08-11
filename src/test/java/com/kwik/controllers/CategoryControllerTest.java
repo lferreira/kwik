@@ -74,4 +74,12 @@ public class CategoryControllerTest extends TestHelper {
 	public void shouldValidateRequiredFields() throws Exception {
 		controller.add(new Category());
 	}
+	
+	@Test
+	public void shoulListCategoryById() throws Exception {
+		Long id = 1l;
+		controller.findBy(id);
+		verify(service).findBy(id);
+	}
+	
 }

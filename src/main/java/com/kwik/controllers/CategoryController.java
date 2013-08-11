@@ -59,4 +59,8 @@ public class CategoryController {
 		} 
 		validator.onErrorRedirectTo(this);
 	}
+
+	public Category findBy(Long id) {
+		return service.findBy(id);
+	}
 }

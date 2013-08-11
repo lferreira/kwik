@@ -10,4 +10,6 @@ public interface CategoryService {
 
 	void add(Category category);
 
+	Category findBy(Long id);
+
 }

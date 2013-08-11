@@ -4,6 +4,7 @@ $(document).ready(function(){
 		'add': '/kwik/category/add', 
 		'clone': function(category, row) {
 			$('td[name=description]', row).text(category.description);
+			$('td>a', row).attr('href', '/kwik/category/edit/' + category.id);
 		}
 	};
 	form.init();
@@ -65,5 +66,6 @@ var form = {
 		var row = $('div#model table>tbody>tr').clone();
 		$('table#list tbody').append(row);
 		form.config.clone(category, row);
-	}
+	},
+	edit: function() {}
 }

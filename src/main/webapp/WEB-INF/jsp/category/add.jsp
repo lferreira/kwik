@@ -12,6 +12,7 @@
 			<thead>
 				<tr>
 					<th>Description</th>
+					<th></th>
 				</tr>	
 			</thead>
 			<tbody>
@@ -22,6 +23,7 @@
 			<table>
 				<tr>
 					<td name="description">&nbsp;</td>
+					<td><a name="edit" class="btn" href="#"><i class="icon-resize-small"></i></a></td>
 				</tr>	
 			</table>	
 		</div>

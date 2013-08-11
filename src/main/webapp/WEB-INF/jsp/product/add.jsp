@@ -25,18 +25,19 @@
 				</div>
 			</div>
 		</form>
-		<table id="list">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Description</th>
-					<th>Value</th>
-				</tr>	
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
-		
+		<div class="well">
+			<table class="table" id="list">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+						<th>Value</th>
+					</tr>	
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
 		<div id="model" style="display: none">
 			<table>
 				<tr>

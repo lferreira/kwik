@@ -12,4 +12,6 @@ public interface CategoryRepository {
 
 	Collection<Category> listAll();
 
+	Category findBy(Long id);
+
 }

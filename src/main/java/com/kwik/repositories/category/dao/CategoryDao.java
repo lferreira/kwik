@@ -42,4 +42,9 @@ public class CategoryDao implements CategoryRepository {
 
 		return resultList;
 	}
+
+	@Override
+	public Category findBy(Long id) {
+		return entityManager.find(Category.class, id);
+	}
 }

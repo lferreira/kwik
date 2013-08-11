@@ -53,4 +53,9 @@ public class CategoryServiceImpl implements CategoryService {
 	public void add(Category category) {
 		repository.add(category);
 	}
+
+	@Override
+	public Category findBy(Long id) {
+		return repository.findBy(id);
+	}
 }

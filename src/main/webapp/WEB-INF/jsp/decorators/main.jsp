@@ -24,7 +24,6 @@
 					<ul id="main-menu-left" class="nav">
 						<li><a id="swatch-link" href="<c:url value="/product/add"/>">Products</a></li>
   						<li><a id="swatch-link" href="<c:url value="/category/add"/>">Categories</a></li>
-  						<li><a id="swatch-link" href="<c:url value="/category/add"/>">Categories/Products</a></li>
 					</ul>
 				</div>			
 			</div>

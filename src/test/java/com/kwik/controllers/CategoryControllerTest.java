@@ -76,10 +76,14 @@ public class CategoryControllerTest extends TestHelper {
 	}
 	
 	@Test
-	public void shoulListCategoryById() throws Exception {
+	public void shoulFindCategoryById() throws Exception {
+		
 		Long id = 1l;
-		controller.findBy(id);
-		verify(service).findBy(id);
+		
+		when(service.findBy(id)).thenReturn(category);
+		
+		controller.edit(id);
+		verify(result).include("category", category);
 	}
 	
 }

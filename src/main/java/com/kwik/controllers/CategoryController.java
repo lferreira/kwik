@@ -53,6 +53,10 @@ public class CategoryController {
 		}
 	}
 	
+	public void edit(Long id) {
+		result.include("category", service.findBy(id));
+	}
+	
 	private void valid(final Category category) {
 		if (isNullOrEmpty(category.getDescription())) {
 			validator.add(new ValidationMessage("erro", "description.is.required"));
@@ -60,7 +64,4 @@ public class CategoryController {
 		validator.onErrorRedirectTo(this);
 	}
 
-	public Category findBy(Long id) {
-		return service.findBy(id);
-	}
 }

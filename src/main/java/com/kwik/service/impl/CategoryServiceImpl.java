@@ -21,9 +21,9 @@ public class CategoryServiceImpl implements CategoryService {
 	
 	private CategoryRepository repository;
 	
-	private Cache<Category> cache;
+	private Cache<Object> cache;
 	
-	public CategoryServiceImpl(CategoryRepository repository, Cache<Category> cache) {
+	public CategoryServiceImpl(CategoryRepository repository, Cache<Object> cache) {
 		this.repository = repository;
 		this.cache = cache;
 	}

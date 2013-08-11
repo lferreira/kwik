@@ -27,7 +27,7 @@ import com.kwik.service.impl.ProductServiceImpl;
 
 public class ProductServiceImplTest extends TestHelper {
 
-	private @Mock Cache<Product> cache;
+	private @Mock Cache<Object> cache;
 
 	private @Mock ProductRepository repository;
 	
@@ -72,7 +72,7 @@ public class ProductServiceImplTest extends TestHelper {
 		
 		List<Product> products = Fixture.from(Product.class).gimme(10, TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
 		
-		when(cache.getList(anyString())).thenReturn(products);
+		when(cache.getList(anyString())).thenReturn(new ArrayList<Object>(products));
 		
 		verify(cache, never()).put(anyString(), anyInt(), (Product) anyObject());;
 	}

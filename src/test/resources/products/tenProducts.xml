@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-	<product id="1"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Preta"        value="100.00" />
-	<product id="2"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Branca"       value="100.00" />
-	<product id="3"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Azul"         value="100.00" />
-	<product id="4"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Verde"        value="100.00" />
-	<product id="5"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Amarela"      value="100.00" />
-	<product id="6"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Vermelha"     value="100.00" />
-	<product id="7"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Roxa"         value="100.00" />
-	<product id="8"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Cinza"        value="100.00" />
-	<product id="9"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Rosa"         value="100.00" />
-	<product id="10" name="Camiseta" description="Camiseta StarWars - Darth Vader - Transparente" value="100.00" />
+	<product id="1"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Preta"        value="100.00" createdAt="2013-01-01 02:00:00" />
+	<product id="2"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Branca"       value="100.00" createdAt="2013-01-01 02:00:00" />
+	<product id="3"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Azul"         value="100.00" createdAt="2013-01-01 02:00:00" />
+	<product id="4"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Verde"        value="100.00" createdAt="2013-01-01 02:00:00" />
+	<product id="5"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Amarela"      value="100.00" createdAt="2013-01-01 02:00:00" />
+	<product id="6"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Vermelha"     value="100.00" createdAt="2013-01-01 02:00:00" />
+	<product id="7"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Roxa"         value="100.00" createdAt="2013-01-01 02:00:00" />
+	<product id="8"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Cinza"        value="100.00" createdAt="2013-01-01 02:00:00" />
+	<product id="9"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Rosa"         value="100.00" createdAt="2013-01-01 02:00:00" />
+	<product id="10" name="Camiseta" description="Camiseta StarWars - Darth Vader - Transparente" value="100.00" createdAt="2013-01-01 02:00:00" />
 </dataset>

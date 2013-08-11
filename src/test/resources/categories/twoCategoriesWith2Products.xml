@@ -3,11 +3,11 @@
 	<category id="1" description="Roupas" />
 	<category id="2" description="Eletronicos" />
 	
-	<product id="1"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Preta" value="100.00" />
-	<product id="2"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Branca" value="100.00" />
+	<product id="1"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Preta" value="100.00" createdAt="2013-01-01 02:00:00" />
+	<product id="2"  name="Camiseta" description="Camiseta StarWars - Darth Vader - Branca" value="100.00" createdAt="2013-01-01 02:00:00" />
 
-	<product id="3"  name="IPOD 16GB" description="IPOD novinho" value="1000.00" />
-	<product id="4"  name="IPOD 32GB" description="IPOD usado" value="1000.00" />
+	<product id="3"  name="IPOD 16GB" description="IPOD novinho" value="1000.00" createdAt="2013-01-01 02:00:00" />
+	<product id="4"  name="IPOD 32GB" description="IPOD usado" value="1000.00" createdAt="2013-01-01 02:00:00" />
 
 	<category_product category_id="1" products_id="1" />
 	<category_product category_id="1" products_id="2" />

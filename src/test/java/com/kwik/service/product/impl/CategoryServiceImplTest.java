@@ -8,14 +8,13 @@ import org.mockito.Mock;
 
 import com.kwik.helper.TestHelper;
 import com.kwik.infra.cache.Cache;
-import com.kwik.models.Category;
 import com.kwik.repositories.category.CategoryRepository;
 import com.kwik.service.CategoryService;
 import com.kwik.service.impl.CategoryServiceImpl;
 
 public class CategoryServiceImplTest extends TestHelper {
 
-	private @Mock Cache<Category> cache;
+	private @Mock Cache<Object> cache;
 
 	private @Mock CategoryRepository repository;
 	

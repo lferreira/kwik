@@ -2,27 +2,33 @@
 	<div class="row">
 		<form id="product" class="form-horizontal" name="product">
 			<div class="control-group">
-				<label class="control-label" for="email">Name</label>
+				<label class="control-label" for="name">Name</label>
 				<div class="controls">
 					<input name="product.name" id="name" type="text" />
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="email">Description</label>
+				<label class="control-label" for="description">Description</label>
 				<div class="controls">	
 					<textarea name="product.description" rows="3" id="description"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="email">Value</label>					
+				<label class="control-label" for="value">Value</label>					
 				<div class="controls">
 					<div class="input-prepend input-append">
 						<span class="add-on">$</span><input name="product.value" id="value" type="text" size="6" /><span class="add-on">.00</span>
 					</div>
-				</div>					
-				<div class="form-actions">
-					<input name="add" id="btnAdd" value="add" type="button" class="btn btn-large btn-primary" />
 				</div>
+			</div>	
+			<div class="control-group">
+				<label class="control-label" for="image">Image</label>
+				<div class="controls">	
+					<input name="product.image" id="image" type="text" />
+				</div>
+			</div>									
+			<div class="form-actions">
+				<input name="add" id="btnAdd" value="add" type="button" class="btn btn-large btn-primary" />
 			</div>
 		</form>
 		<div class="well">

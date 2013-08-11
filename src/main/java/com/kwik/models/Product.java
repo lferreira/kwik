@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Type;
+import org.joda.time.LocalDateTime;
+
 @Entity
 public class Product {
 
@@ -21,9 +24,11 @@ public class Product {
 	@Column(nullable = false)
 	private Double value;
 	
-//	@Column
-//	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
-//	private LocalDateTime dateTime;
+	@Column(name="createdAt", nullable = false)
+	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+    private LocalDateTime createdAt = LocalDateTime.now();
+	
+	private String image = "http://thumbs.ebaystatic.com/d/w225/m/mnj5TsinM2h75YqNNlyewRQ.jpg";
 	
 	@OneToOne
 	private Specifics specifics;
@@ -68,11 +73,19 @@ public class Product {
 		this.name = name;
 	}
 
-//	public LocalDateTime getDateTime() {
-//		return dateTime;
-//	}
-//
-//	public void setDateTime(LocalDateTime dateTime) {
-//		this.dateTime = dateTime;
-//	}
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
 }

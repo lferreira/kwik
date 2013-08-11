@@ -53,6 +53,7 @@ public class CategoryController {
 		}
 	}
 	
+	@Get("category/edit/{id}")
 	public void edit(Long id) {
 		result.include("category", service.findBy(id));
 	}

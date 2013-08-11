@@ -18,13 +18,13 @@ public class ProductServiceImpl implements ProductService {
 
 	private static final int ONE_HOUR = 3600;
 
-	private Cache<Product> cache;
+	private Cache<Object> cache;
 
 	private ProductRepository repository;
 	
-	public ProductServiceImpl(ProductRepository repository, Cache<Product> cacheClient) {
+	public ProductServiceImpl(ProductRepository repository, Cache<Object> cache) {
 		super();
-		this.cache = cacheClient;
+		this.cache = cache;
 		this.repository = repository;
 	}
 

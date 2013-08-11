@@ -71,6 +71,8 @@ Iniciando o Memcached
 MySQL
 ============================================================================
 
+* Mac
+
 Instalando no Mac com Homebrew
 
 <code>$ brew install mysql </code>
@@ -109,6 +111,13 @@ Remove test database and access to it? [Y/n] Y
 Reload privilege tables now? [Y/n] Y
 
 
+* Windows
+
+http://dev.mysql.com/doc/refman/5.5/en/windows-installation.html
+
+* Linux
+
+http://dev.mysql.com/doc/refman/5.1/en/linux-installation.html
 
 
 

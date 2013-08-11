@@ -1,4 +1,4 @@
-package com.kwik.component.factory;
+package com.kwik.infra.cache.factory;
 
 import java.io.IOException;
 
@@ -7,21 +7,15 @@ import br.com.caelum.vraptor.ioc.ApplicationScoped;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.ComponentFactory;
 
-import com.kwik.infra.cache.client.CacheClient;
-
 @Component
 @ApplicationScoped
-public class MemcachedFactory implements ComponentFactory<CacheClient> {
+public class CacheClientFactory implements ComponentFactory<XMemcachedClient> {
 
 	@Override
-	public CacheClient getInstance() {
+	public XMemcachedClient getInstance() {
 		
 		try {
-			
-			CacheClient cacheClient = new CacheClient();
-			cacheClient.set(new XMemcachedClient("localhost", 11211));
-			return cacheClient;
-			
+			return new XMemcachedClient("localhost", 11211);
 		} catch (IOException e1) {
 			throw new RuntimeException("problem connecting with memcached!");
 		}

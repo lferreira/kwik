@@ -1,5 +1,6 @@
 package com.kwik.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,7 +12,9 @@ import javax.persistence.OneToMany;
 import com.google.common.collect.Lists;
 
 @Entity
-public class Category {
+public class Category implements Serializable {
+
+	private static final long serialVersionUID = 6098372604697664608L;
 
 	@Id @GeneratedValue
 	private Long id;

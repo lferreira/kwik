@@ -5,28 +5,39 @@ import java.util.concurrent.TimeoutException;
 
 import net.rubyeye.xmemcached.XMemcachedClient;
 import net.rubyeye.xmemcached.exception.MemcachedException;
+import br.com.caelum.vraptor.ioc.ApplicationScoped;
 import br.com.caelum.vraptor.ioc.Component;
 
 import com.kwik.infra.cache.Cache;
+import com.kwik.infra.cache.exception.KwikCacheException;
 
 @Component
+@ApplicationScoped
 public class CacheClient implements Cache<Object> {
 
+	private static final String CACHE_SERVER_MUST_BE_STOPED = "cache server must be stoped";
+
+	private static final String COMMUNICATION_LOST = "communication lost";
+
+	private static final String TIMEOUT = "timeout!";
+	
 	private XMemcachedClient client;
 	
+	public CacheClient(XMemcachedClient client) {
+		super();
+		this.client = client;
+	}
+
 	@Override
 	public void put(String key, int time, Object t) {
 		try {
 			client.add(key, time, t);
 		} catch (TimeoutException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new KwikCacheException(TIMEOUT, e);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new KwikCacheException(COMMUNICATION_LOST, e);
 		} catch (MemcachedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new KwikCacheException(CACHE_SERVER_MUST_BE_STOPED, e);
 		}
 	}
 
@@ -40,16 +51,12 @@ public class CacheClient implements Cache<Object> {
 		try {
 			return client.get(key);
 		} catch (TimeoutException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new KwikCacheException(TIMEOUT, e);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new KwikCacheException(COMMUNICATION_LOST, e);
 		} catch (MemcachedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new KwikCacheException(CACHE_SERVER_MUST_BE_STOPED, e);
 		}
-		return null;
 	}
 
 	@Override
@@ -57,19 +64,11 @@ public class CacheClient implements Cache<Object> {
 		try {
 			return client.get(key);
 		} catch (TimeoutException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new KwikCacheException(TIMEOUT, e);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new KwikCacheException(COMMUNICATION_LOST, e);
 		} catch (MemcachedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new KwikCacheException(CACHE_SERVER_MUST_BE_STOPED, e);
 		}
-		return null;
-	}
-
-	public void set(XMemcachedClient client) {
-		this.client = client;
 	}
 }

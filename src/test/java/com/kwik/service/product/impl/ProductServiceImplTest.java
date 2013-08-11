@@ -51,7 +51,7 @@ public class ProductServiceImplTest extends TestHelper {
 	@Test
 	public void shouldListProducts() throws Exception {
 		
-		productService.listProducts();
+		productService.listAll();
 		
 		verify(repository).listAll();
 	}
@@ -62,7 +62,7 @@ public class ProductServiceImplTest extends TestHelper {
 		
 		when(cache.get(anyString())).thenReturn(null);
 		
-		productService.listProducts();
+		productService.listAll();
 		
 		verify(cache).put(anyString(), anyInt(), (ArrayList<Product>) anyObject());
 	}

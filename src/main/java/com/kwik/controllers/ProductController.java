@@ -44,7 +44,7 @@ public class ProductController {
 	@Get
 	public void list() {
 		
-		List<Product> list = service.listProducts();
+		List<Product> list = service.listAll();
 		
 		if (list.isEmpty()) {
 			result.use(Results.status()).noContent();

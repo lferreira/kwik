@@ -30,7 +30,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Product> listProducts() {
+	public List<Product> listAll() {
 		
 		List<Product> products = Lists.newArrayList();
 		

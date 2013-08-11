@@ -3,6 +3,10 @@ package com.kwik.controllers;
 import static br.com.caelum.vraptor.view.Results.json;
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +18,8 @@ import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
 import br.com.caelum.vraptor.validator.ValidationException;
+import br.com.caelum.vraptor.view.Results;
+import br.com.six2six.fixturefactory.Fixture;
 
 import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.TestHelper;
@@ -40,8 +46,22 @@ public class CategoryControllerTest extends TestHelper {
 	
 	@Test
 	public void shouldListCategoriesWithProducts() throws Exception {
+		
+		List<Category> categories = Fixture.from(Category.class).gimme(4, TemplateLoader.CategoryTemplate.CATEGORIA_ROUPAS);
+		
+		when(service.listAll()).thenReturn(categories);
+		
 		controller.list();
 		verify(result).use(json());
+	}
+	
+	@Test
+	public void listCategoriesWithProductsShouldBeEmpty() throws Exception {
+		
+		when(service.listAll()).thenReturn(new ArrayList<Category>());
+		
+		controller.list();
+		verify(result).use(Results.status());
 	}
 	
 	@Test

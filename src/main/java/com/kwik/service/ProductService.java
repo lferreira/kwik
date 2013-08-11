@@ -6,7 +6,7 @@ import com.kwik.models.Product;
 
 public interface ProductService {
 
-	List<Product> listProducts();
+	List<Product> listAll();
 
 	Product add(Product product);
 

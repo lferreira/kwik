@@ -47,6 +47,10 @@ foi por uma boa causa , pois os teste ficaram bem mais enxutos pois toda a respo
 os mocks , ou seja , toda a tarefa repetitiva e necessária para todos os testes estão nessa classe.
 
 
+Para rodar todos os testes unitários basta executar:
+
+<code> mvn test </code>
+
 Ambiente
 ============================================================================
 

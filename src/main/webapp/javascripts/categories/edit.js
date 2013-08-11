@@ -34,5 +34,26 @@ var form = {
 		$('div#products').append(row);
 		$('input[type="checkbox"]', row).val(product.id);
 		$('span[name=description]', row).text(product.name);
+	},
+	associate: function() {
+		$.ajax({  
+			type: 'POST',  
+			url: '/kwik/category/associate',  
+			data: {  
+				'category.id' : $('div#id').text(),  
+				'ids' : form.checkbox_values()
+			},
+			cache: false,  
+			success: function( data ) {  
+				form.list();
+			}  
+		});  
+	},
+	checkbox_values: function() {
+		var val = [];
+		$('input[type="checkbox"]:checked').each(function(i){
+			val[i] = $(this).val();
+		});
+		return val;
 	}
 }

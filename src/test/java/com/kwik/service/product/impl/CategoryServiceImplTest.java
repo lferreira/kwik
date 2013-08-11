@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import com.kwik.helper.TestHelper;
 import com.kwik.infra.cache.Cache;
 import com.kwik.repositories.category.CategoryRepository;
+import com.kwik.repositories.product.ProductRepository;
 import com.kwik.service.CategoryService;
 import com.kwik.service.impl.CategoryServiceImpl;
 
@@ -18,11 +19,13 @@ public class CategoryServiceImplTest extends TestHelper {
 
 	private @Mock CategoryRepository repository;
 	
+	private @Mock ProductRepository productRepository;
+	
 	private CategoryService service;
 	
 	@Before
 	public void setUp() {
-		service = new CategoryServiceImpl(repository, cache);
+		service = new CategoryServiceImpl(repository, productRepository, cache);
 	}
 	
 	@Test

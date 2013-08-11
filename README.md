@@ -10,7 +10,7 @@ Arquitetura
 Ambiente
 ============================================================================
 
-A maneira mais fácil de instalar pacotes no MacOS é utilizando o Homebrew <br>
+A maneira mais fácil de instalar pacotes no OS X é utilizando o Homebrew <br>
 http://brew.sh/
 
 - Instalando o Homebrew

@@ -86,4 +86,16 @@ public class CategoryControllerTest extends TestHelper {
 		verify(result).include("category", category);
 	}
 	
+	@Test
+	public void shouldAssociateProductsToCategory() throws Exception {
+		
+		List<Long> ids = new ArrayList<Long>();
+		
+		controller.associate(category, ids);
+		
+		verify(service).associate(category, ids);
+		
+		verify(result).use(Results.status());
+	}
+	
 }

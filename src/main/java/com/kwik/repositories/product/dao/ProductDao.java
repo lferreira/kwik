@@ -40,4 +40,16 @@ public class ProductDao implements ProductRepository {
 
 		return resultList;
 	}
+
+	@Override
+	public List<Product> findBy(List<Long> ids) {
+		
+		Query query = entityManager.createQuery("FROM " + Product.class.getName() + " p WHERE p.id IN :ids ");
+		query.setParameter("ids", ids);
+		
+		@SuppressWarnings("unchecked")
+		List<Product> resultList = query.getResultList();
+		
+		return resultList;
+	}
 }

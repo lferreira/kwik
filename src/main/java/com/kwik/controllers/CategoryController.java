@@ -58,11 +58,18 @@ public class CategoryController {
 		result.include("category", service.findBy(id));
 	}
 	
+	@Post
+	public void associate(Category category, List<Long> ids) {
+		service.associate(category, ids);
+		result.use(Results.status()).ok();
+	}
+	
 	private void valid(final Category category) {
 		if (isNullOrEmpty(category.getDescription())) {
 			validator.add(new ValidationMessage("erro", "description.is.required"));
 		} 
 		validator.onErrorRedirectTo(this);
 	}
+
 
 }

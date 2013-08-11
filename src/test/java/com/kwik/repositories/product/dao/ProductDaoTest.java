@@ -1,6 +1,7 @@
 package com.kwik.repositories.product.dao;
 
 import static br.com.six2six.fixturefactory.Fixture.from;
+import static java.util.Arrays.asList;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -17,18 +18,17 @@ import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.TestHelper;
 import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
-import com.kwik.repositories.product.dao.ProductDao;
 
 public class ProductDaoTest extends TestHelper {
 
-	private ProductRepository produtoRepository;
+	private ProductRepository productRepository;
 	
 	private Product product;
 	
 	@Before
 	public void setUp() {
 		
-		produtoRepository = new ProductDao(entityManager);
+		productRepository = new ProductDao(entityManager);
 		
 		product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
 	}
@@ -36,7 +36,7 @@ public class ProductDaoTest extends TestHelper {
 	@Test
 	public void shouldIncludeNewProduct() throws Exception {
 		
-		Product returned = produtoRepository.add(product);
+		Product returned = productRepository.add(product);
 		
 		assertThat(returned.getDescription(), equalTo(product.getDescription()));
 	}
@@ -44,11 +44,11 @@ public class ProductDaoTest extends TestHelper {
 	@Test
 	public void shouldUpdateProductDescription() throws Exception {
 		
-		Product returned = produtoRepository.add(product);
+		Product returned = productRepository.add(product);
 		
 		returned.setDescription(descriptionDummy("Na verdade essa camiseta tem uma logo"));
 		
-		Product updated = produtoRepository.update(returned);
+		Product updated = productRepository.update(returned);
 		
 		assertThat(updated.getDescription(), equalTo(product.getDescription()));
 	}
@@ -58,20 +58,32 @@ public class ProductDaoTest extends TestHelper {
 		
 		new DBUnitHelper().cleanInsert("/products/tenProducts.xml");
 		
-		List<Product> products = produtoRepository.listAll();
+		List<Product> products = productRepository.listAll();
 		
 		assertThat(products.size(), equalTo(10));
 	}
 	
 	@Test(expected = PersistenceException.class)
 	public void shouldValidateEmptyDescription() throws Exception {
-		produtoRepository.add(new Product());
+		productRepository.add(new Product());
 	}
 	
 	@Test
 	public void shouldAddSpecificsForProdut() throws Exception {
-		Product returned = produtoRepository.add(product);
+		Product returned = productRepository.add(product);
 		assertThat(returned.getSpecifics(), is(product.getSpecifics()));
+	}
+	
+	@Test
+	public void shouldListByIds() throws Exception {
+		
+		new DBUnitHelper().cleanInsert("/products/tenProducts.xml");
+		
+		List<Long> ids = asList(1L, 2L, 3L);
+		
+		List<Product> products = productRepository.findBy(ids);
+		
+		assertThat(products.size(), is(3));
 	}
 	
 	private String descriptionDummy(String description) {

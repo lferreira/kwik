@@ -6,10 +6,12 @@ import com.kwik.models.Product;
 
 public interface ProductRepository {
 	
-	public Product add(Product product);
+	Product add(Product product);
 
-	public Product update(Product product);
+	Product update(Product product);
 
-	public List<Product> listAll();
+	List<Product> listAll();
+
+	List<Product> findBy(List<Long> ids);
 
 }

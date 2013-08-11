@@ -1,5 +1,7 @@
 package com.kwik.service.impl;
 
+import static com.kwik.infra.cache.time.CacheTime.THREE_SECONDS;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -9,7 +11,9 @@ import br.com.caelum.vraptor.ioc.Component;
 import com.google.common.collect.Lists;
 import com.kwik.infra.cache.Cache;
 import com.kwik.models.Category;
+import com.kwik.models.Product;
 import com.kwik.repositories.category.CategoryRepository;
+import com.kwik.repositories.product.ProductRepository;
 import com.kwik.service.CategoryService;
 
 @Component
@@ -17,13 +21,14 @@ public class CategoryServiceImpl implements CategoryService {
 
 	private static final String KEY = "allCategories";
 
-	private static final int ONE_HOUR = 3600;
-	
 	private CategoryRepository repository;
+	
+	private ProductRepository productRepository;
 	
 	private Cache<Object> cache;
 	
-	public CategoryServiceImpl(CategoryRepository repository, Cache<Object> cache) {
+	public CategoryServiceImpl(CategoryRepository repository, ProductRepository productRepository, Cache<Object> cache) {
+		this.productRepository = productRepository;
 		this.repository = repository;
 		this.cache = cache;
 	}
@@ -43,7 +48,7 @@ public class CategoryServiceImpl implements CategoryService {
 		} else {
 			
 			categories = (List<Category>) repository.listAll();
-			cache.put(KEY, ONE_HOUR, categories);
+			cache.put(KEY, THREE_SECONDS.getTime(), categories);
 		}
 		
 		return categories;
@@ -57,5 +62,15 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public Category findBy(Long id) {
 		return repository.findBy(id);
+	}
+
+	@Override
+	public void associate(Category category, List<Long> ids) {
+		
+		category = findBy(category.getId());
+		
+		List<Product> products = productRepository.findBy(ids);
+		category.add(products);
+		repository.update(category);
 	}
 }

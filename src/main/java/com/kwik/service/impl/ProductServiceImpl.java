@@ -1,5 +1,7 @@
 package com.kwik.service.impl;
 
+import static com.kwik.infra.cache.time.CacheTime.THREE_SECONDS;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +17,6 @@ import com.kwik.service.ProductService;
 public class ProductServiceImpl implements ProductService {
 
 	private static final String KEY = "allProducts";
-
-	private static final int ONE_HOUR = 3600;
 
 	private Cache<Object> cache;
 
@@ -43,7 +43,7 @@ public class ProductServiceImpl implements ProductService {
 		} else {
 			
 			products = repository.listAll();
-			cache.put(KEY, ONE_HOUR, products);
+			cache.put(KEY, THREE_SECONDS.getTime(), products);
 		}
 		
 		return products;

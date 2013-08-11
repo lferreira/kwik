@@ -10,6 +10,17 @@ que é um framework "action-based" , leve , poderoso de alta produtividade e o m
 Apesar de ter utilizado o VRaptor , procurei desacoplar as páginas do backend , ou seja todos as chamadas aos controllers são REST
 com ajax/jquery e não estou utilizando nenhuma tag jsp , apenas html/css/js puro.
 
+O aplicação conta também com uma camada de cache (Memcached) a partir da camada de serviços. Por padrão apenas as operações
+de listar todos os produtos e categorias estão com cache com tempo 3 segundos (escolhi esse tempo aleatoriamente , mas a idéia 
+é que tenha um lugar onde você possa cadastrar os tempos, cache de cache operações. Para essa aplicação os tempos e caches
+estão fixos no código e por padrão a aplicação espera que o memcached esteja rodando em "localhost:11211".
+
+
+O Front-end é bem simples, utilizei Jquery para realizar as chamadas aos serviços REST e montar o dinamismo das páginas.
+Separei em alguns arquivos js , e também segui boas práticas como por exemplo , não criar funções anônimas. O código esta 
+meio repetitivo porém esta bem simples de isolar os comportamentos comuns a todas as páginas e para dar uma "cara" melhorzinha utilizei o twitter-bootstrap.
+
+
 Para os testes utilizei uma série de Test-Doubles e Helpers
 
 - DBunit com Jstryker 

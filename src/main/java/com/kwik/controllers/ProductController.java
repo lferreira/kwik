@@ -10,7 +10,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
-import br.com.caelum.vraptor.validator.ValidationMessage;
+import br.com.caelum.vraptor.validator.Validations;
 import br.com.caelum.vraptor.view.Results;
 
 import com.kwik.models.Product;
@@ -54,13 +54,13 @@ public class ProductController {
 	}
 	
 	private void valid(final Product product) {
-		if (isNullOrEmpty(product.getName())) {
-			validator.add(new ValidationMessage("erro", "name.is.required"));
-		} else if (isNullOrEmpty(product.getDescription())) {
-			validator.add(new ValidationMessage("erro", "description.is.required"));
-		} else if (product.getValue() == null || product.getValue() < 0) {
-			validator.add(new ValidationMessage("erro", "value.is.required"));
-		}
+		
+	    validator.checking(new Validations() { {
+	        that(!isNullOrEmpty(product.getName()), "erro", "name.is.required");
+	        that(!isNullOrEmpty(product.getDescription()), "erro", "description.is.required");
+	        that(!(product.getValue() == null || product.getValue() <= 0), "erro", "description.is.required");
+	    } });
+
 		validator.onErrorRedirectTo(this);
 	}
 }

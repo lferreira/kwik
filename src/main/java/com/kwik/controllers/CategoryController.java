@@ -10,7 +10,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
-import br.com.caelum.vraptor.validator.ValidationMessage;
+import br.com.caelum.vraptor.validator.Validations;
 import br.com.caelum.vraptor.view.Results;
 
 import com.kwik.models.Category;
@@ -65,9 +65,11 @@ public class CategoryController {
 	}
 	
 	private void valid(final Category category) {
-		if (isNullOrEmpty(category.getDescription())) {
-			validator.add(new ValidationMessage("erro", "description.is.required"));
-		} 
+		
+	    validator.checking(new Validations() { {
+	        that(!isNullOrEmpty(category.getDescription()), "erro", "description.is.required");
+	    } });
+	        
 		validator.onErrorRedirectTo(this);
 	}
 

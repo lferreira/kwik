@@ -15,7 +15,13 @@ http://brew.sh/
 
 - Instalando o Homebrew
 
-<code>ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"</code>
+<code>$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"</code>
+
+Se não tem é legal ter o git instalado também
+
+<code>$ brew install git</code>
+
+<code>$ brew update</code>
 
 
 Memcached
@@ -34,11 +40,11 @@ MAC
 
 Instalando no Mac com Homebrew
 
-<code>brew install memcached</code>
+<code>$ brew install memcached</code>
 
 Iniciando o Memcached
 
-<code>memcached -vv</code>
+<code>$ memcached -vv</code>
 
 Windows
 -------
@@ -57,9 +63,34 @@ Executar <MEMCACHED_HOME>/bin/memcached.exe
 Linux
 -----
 
-<code>sudo apt-get install memcached</code>
+<code>:~$ sudo apt-get install memcached</code>
 
 Iniciando o Memcached
 
-<code>sudo service memcached start</code>
+<code>:~$ sudo service memcached start</code>
+
+
+MySQL
+----------------------------------------------------------------------------
+
+Instalando no Mac com Homebrew
+
+<code>$ brew install mysql </code>
+
+Iniciando o MySql
+
+<code>$ mysql.server start </code>
+
+
+Se você tiver algum erro na subida do MySQL (como foi no meu caso) </br> 
+Command + Shift + G) /usr/local/var/mysql e edite o arquivo com extensão .err (e.g. Your-Machine-Name.local.err) </br>
+
+
+Para mim apareceu um erro : “ERROR! The server quit without updating PID file”. 
+Isso é um erro de permissão no diretório /usr/local/var/mysql. 
+
+<code>$ sudo chmod -R 755 /usr/local/var/mysql</code>
+<code>$ rm -Rf /usr/local/var/mysql/Your-Machine-Name.local.err</code>
+
+<code>$ mysql.server start </code>
 

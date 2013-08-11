@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="row">
-		<table id="list">
+		<table class="table" id="list">
 			<thead>
 				<tr>
-					<th>Description</th>
+					<th>Last Categories Included...</th>
 				<tr>	
 			</thead>
 			<tbody>

@@ -15,8 +15,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import br.com.six2six.fixturefactory.Fixture;
-
 import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.TestHelper;
 import com.kwik.infra.cache.Cache;
@@ -70,7 +68,7 @@ public class ProductServiceImplTest extends TestHelper {
 	@Test
 	public void shouldGetProductsFromCache() throws Exception {
 		
-		List<Product> products = Fixture.from(Product.class).gimme(10, TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
+		List<Product> products = from(Product.class).gimme(10, TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
 		
 		when(cache.getList(anyString())).thenReturn(new ArrayList<Object>(products));
 		

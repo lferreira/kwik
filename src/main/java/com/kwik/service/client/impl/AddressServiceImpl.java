@@ -59,6 +59,6 @@ public class AddressServiceImpl implements AddressService {
 	}
 	
 	private String get(Elements elements, String value) {
-		return elements.select(String.format("span:contains(%s)+span", value)).text();
+		return elements.select(format("span:contains(%s)+span", value)).text();
 	}
 }

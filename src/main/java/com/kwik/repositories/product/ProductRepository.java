@@ -14,4 +14,8 @@ public interface ProductRepository {
 
 	List<Product> findBy(List<Long> ids);
 
+	Product findBy(Long id);
+
+	void destroy(Product product);
+
 }

@@ -62,6 +62,7 @@ public class TemplateLoader {
 		public static void loadTemplates() {
 			Fixture.of(Category.class).addTemplate(CATEGORIA_ROUPAS,
 			new Rule() {{ 
+				add("id", 99L);
 				add("description", "Roupas");
 			}});
 		}

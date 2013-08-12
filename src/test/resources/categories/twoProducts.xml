@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<product id="11"  name="Camiseta 1" description="Camiseta StarWars - Darth Vader - Preta - P"        value="100.00" createdAt="2013-01-01 02:00:00" />
+	<product id="22"  name="Camiseta 2" description="Camiseta StarWars - Darth Vader - Branca - M"       value="100.00" createdAt="2013-01-01 02:00:00" />
+</dataset>

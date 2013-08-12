@@ -52,4 +52,14 @@ public class ProductDao implements ProductRepository {
 		
 		return resultList;
 	}
+
+	@Override
+	public Product findBy(Long id) {
+		return entityManager.find(Product.class, id);
+	}
+
+	@Override
+	public void destroy(Product product) {
+		entityManager.remove(findBy(product.getId()));
+	}
 }

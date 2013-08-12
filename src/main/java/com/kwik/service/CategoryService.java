@@ -15,4 +15,6 @@ public interface CategoryService {
 
 	void associate(Category category, List<Long> ids);
 
+	void destroy(Category category);
+
 }

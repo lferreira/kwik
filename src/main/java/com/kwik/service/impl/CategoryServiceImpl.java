@@ -73,4 +73,9 @@ public class CategoryServiceImpl implements CategoryService {
 		category.add(products);
 		repository.update(category);
 	}
+
+	@Override
+	public void destroy(Category category) {
+		repository.destroy(category);
+	}
 }

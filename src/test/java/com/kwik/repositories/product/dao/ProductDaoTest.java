@@ -86,6 +86,31 @@ public class ProductDaoTest extends TestHelper {
 		assertThat(products.size(), is(3));
 	}
 	
+	@Test
+	public void shouldFindById() throws Exception {
+		
+		new DBUnitHelper().cleanInsert("/products/tenProducts.xml");
+		
+		Product product = productRepository.findBy(1L);
+		
+		assertThat(product.getId(), is(1L));
+	}
+	
+	@Test
+	public void shouldDestroyProduct() throws Exception {
+		
+		new DBUnitHelper().cleanInsert("/products/tenProducts.xml");
+		
+		Product product = productRepository.findBy(1L);
+		
+		productRepository.destroy(product);
+		
+		List<Product> products = productRepository.listAll();
+		
+		assertThat(products.size(), is(9));
+		
+	}
+	
 	private String descriptionDummy(String description) {
 		return description;
 	}

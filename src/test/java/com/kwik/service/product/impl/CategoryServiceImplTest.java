@@ -77,4 +77,13 @@ public class CategoryServiceImplTest extends TestHelper {
 		verify(cache, never()).put(anyString(), anyInt(), (Product) anyObject());;
 	}
 	
+	@Test
+	public void shouldDestroyCategory() throws Exception {
+		
+		Category category = from(Category.class).gimme(TemplateLoader.CategoryTemplate.CATEGORIA_ROUPAS);
+		
+		service.destroy(category);
+		
+		verify(repository).destroy(category);
+	}
 }

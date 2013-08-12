@@ -19,7 +19,6 @@ import com.kwik.helper.TestHelper;
 import com.kwik.models.Category;
 import com.kwik.models.Product;
 import com.kwik.repositories.category.CategoryRepository;
-import com.kwik.repositories.product.dao.ProductDao;
 
 public class CategoryDaoTest extends TestHelper {
 
@@ -55,15 +54,14 @@ public class CategoryDaoTest extends TestHelper {
 		
 		categoryReturned = categoryRepository.add(category);
 		
-		new DBUnitHelper().cleanInsert("/products/tenProducts.xml");
-
-		List<Product> products = new ProductDao(entityManager).listAll();
+		Product product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
+		categoryReturned.add(product);
 		
-		categoryReturned.add(products);
+		categoryReturned = categoryRepository.update(categoryReturned);
 		
-		Category updated = categoryRepository.update(categoryReturned);
+		List<Product> products = categoryRepository.findBy(categoryReturned.getId()).getProducts();
 		
-		assertThat(updated.getProducts(), is(products));
+		assertThat(products.size(), is(1));
 	}
 	
 	@Test

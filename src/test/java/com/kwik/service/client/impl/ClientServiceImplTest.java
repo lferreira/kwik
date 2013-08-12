@@ -39,6 +39,7 @@ public class ClientServiceImplTest extends TestHelper {
 	
 	@Test
 	public void shouldIncludeNewClient() throws Exception {
+		
 		clientService.add(joao);
 		
 		verify(clientRepository).add(joao);
@@ -58,7 +59,9 @@ public class ClientServiceImplTest extends TestHelper {
 	
 	@Test
 	public void shoulNotifyClientWhenResetPassword() throws Exception {
+		
 		clientService.resetPassword(joao);
+		
 		verify(notification).send(any(Client.class), anyString());
 	}
 	

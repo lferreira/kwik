@@ -76,7 +76,7 @@ public class CategoryControllerTest extends TestHelper {
 	}
 	
 	@Test
-	public void shoulFindCategoryById() throws Exception {
+	public void shouldFindCategoryById() throws Exception {
 		
 		Long id = 1l;
 		

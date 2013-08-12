@@ -45,7 +45,7 @@ public class CategoryDaoTest extends TestHelper {
 	}
 	
 	@Test(expected = PersistenceException.class)
-	public void shoulValidateEmptyDescription() throws Exception {
+	public void shouldValidateEmptyDescription() throws Exception {
 		categoryRepository.add(new Category());
 	}
 	
@@ -65,7 +65,7 @@ public class CategoryDaoTest extends TestHelper {
 	}
 	
 	@Test
-	public void shoulListCategoriesWithProducts() throws Exception {
+	public void shouldListCategoriesWithProducts() throws Exception {
 		
 		new DBUnitHelper().cleanInsert("/categories/twoCategoriesWith2Products.xml");
 		

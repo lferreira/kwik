@@ -37,7 +37,7 @@ public class ClientControllerTest extends TestHelper {
 	}
 	
 	@Test
-	public void shoulResetPassword() throws Exception {
+	public void shouldResetPassword() throws Exception {
 		
 		controller.resetPassword(joao);
 		

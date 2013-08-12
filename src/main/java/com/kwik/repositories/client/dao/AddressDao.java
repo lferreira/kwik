@@ -34,4 +34,10 @@ public class AddressDao implements AddressRespository {
 		return address;
 	}
 
+	@Override
+	public Address add(Address address) {
+		Address result = address;
+		entityManager.persist(result);
+		return result;
+	}
 }

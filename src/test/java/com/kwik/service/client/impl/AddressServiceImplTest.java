@@ -4,6 +4,7 @@ import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
@@ -18,9 +19,9 @@ import com.kwik.service.client.AddressService;
 
 public class AddressServiceImplTest extends TestHelper {
 
-	private AddressService service;
-	
 	private @Mock AddressRespository repository;
+	
+	private AddressService service;
 	
 	private Address address;
 	
@@ -41,9 +42,11 @@ public class AddressServiceImplTest extends TestHelper {
 	@Test
 	public void shouldFindFromWebService() throws Exception {
 		
-		when(repository.findBy("02458777")).thenReturn(null);
+		when(repository.findBy(anyString())).thenReturn(null);
 		
-		Address returned = service.getAddressBy(anyString());
+		when(repository.add(address)).thenReturn(address);
+		
+		Address returned = service.getAddressBy("02458777");
 		
 		assertThat(returned, is(address));
 	}
@@ -55,9 +58,20 @@ public class AddressServiceImplTest extends TestHelper {
 		
 		when(repository.findBy(anyString())).thenReturn(fixture);
 		
-		Address returned = service.getAddressBy(anyString());
+		Address returned = service.getAddressBy("02458777");
 		
 		assertThat(returned, is(fixture));
+	}
+	
+	@Test
+	public void shouldIncludeNewAddress() throws Exception {
+		
+		when(repository.findBy(anyString())).thenReturn(null);
+		
+		service.getAddressBy(anyString());
+		
+		verify(repository).add(address);
+		
 	}
 	
 }

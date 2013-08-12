@@ -28,7 +28,7 @@ public class ClientDaoTest extends TestHelper {
 	}
 	
 	@Test
-	public void shoulIncludeClient() throws Exception {
+	public void shouldIncludeClient() throws Exception {
 		
 		Client returned = clientRepository.add(joao);
 		

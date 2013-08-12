@@ -6,4 +6,6 @@ public interface AddressRespository {
 
 	Address findBy(String zipCode);
 
+	Address add(Address address);
+
 }

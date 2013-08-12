@@ -30,7 +30,7 @@ public class AddressServiceImpl implements AddressService {
 		Address address = repository.findBy(zipCode);
 			
 		if (address == null) {
-			address = fromWebservice(zipCode);
+			address = repository.add(fromWebservice(zipCode));
 		}
 		
 		return address;

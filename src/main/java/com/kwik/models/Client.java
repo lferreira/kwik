@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Client implements Serializable {
@@ -21,6 +22,9 @@ public class Client implements Serializable {
 	@Column(nullable = false)
 	private String password;
 
+	@OneToOne
+	private Address address;
+	
 	public Long getId() {
 		return id;
 	}
@@ -43,5 +47,13 @@ public class Client implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }

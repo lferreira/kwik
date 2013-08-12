@@ -1,5 +1,7 @@
 package com.kwik.controllers;
 
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 
 import com.kwik.models.Client;
@@ -14,6 +16,10 @@ public class ClientController {
 		this.service = service;
 	}
 
+	@Get
+	public void add() {}
+	
+	@Post
 	public void add(Client client) {
 		service.add(client);
 	}

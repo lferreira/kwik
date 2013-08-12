@@ -17,6 +17,7 @@ import com.kwik.helper.TestHelper;
 import com.kwik.infra.notification.Notification;
 import com.kwik.models.Client;
 import com.kwik.repositories.client.ClientRepository;
+import com.kwik.service.client.AddressService;
 import com.kwik.service.client.ClientService;
 
 public class ClientServiceImplTest extends TestHelper {
@@ -25,6 +26,8 @@ public class ClientServiceImplTest extends TestHelper {
 	
 	private @Mock Notification notification;
 	
+	private @Mock AddressService addressService;
+	
 	private ClientService clientService;
 	
 	private Client joao;
@@ -32,7 +35,7 @@ public class ClientServiceImplTest extends TestHelper {
 	@Before
 	public void setUp() {
 		
-		clientService = new ClientServiceImpl(clientRepository, notification);
+		clientService = new ClientServiceImpl(clientRepository, notification, addressService);
 		
 		joao = from(Client.class).gimme(TemplateLoader.ClientTemplate.JOAO);
 	}
@@ -58,11 +61,16 @@ public class ClientServiceImplTest extends TestHelper {
 	}
 	
 	@Test
-	public void shoulNotifyClientWhenResetPassword() throws Exception {
+	public void shouldNotifyClientWhenResetPassword() throws Exception {
 		
 		clientService.resetPassword(joao);
 		
 		verify(notification).send(any(Client.class), anyString());
 	}
 	
+	@Test
+	public void shouldGetAdressFromCorreios() throws Exception {
+		clientService.getAddressBy(anyString());
+		verify(addressService).getAddressBy(anyString());
+	}
 }

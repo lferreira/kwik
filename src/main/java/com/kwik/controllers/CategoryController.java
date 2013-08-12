@@ -49,7 +49,7 @@ public class CategoryController {
 		if (list.isEmpty()) {
 			result.use(Results.status()).noContent();
 		} else {
-			result.use(json()).from(list).include("products.image").serialize(); 
+			result.use(json()).from(list).serialize(); 
 		}
 	}
 	
@@ -72,6 +72,5 @@ public class CategoryController {
 	        
 		validator.onErrorRedirectTo(this);
 	}
-
 
 }

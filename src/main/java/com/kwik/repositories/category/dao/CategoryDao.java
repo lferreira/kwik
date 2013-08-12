@@ -47,4 +47,9 @@ public class CategoryDao implements CategoryRepository {
 	public Category findBy(Long id) {
 		return entityManager.find(Category.class, id);
 	}
+
+	@Override
+	public void destroy(Category category) {
+		entityManager.remove(findBy(category.getId()));
+	}
 }

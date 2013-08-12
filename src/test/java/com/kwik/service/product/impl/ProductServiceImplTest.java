@@ -39,7 +39,7 @@ public class ProductServiceImplTest extends TestHelper {
 	@Test
 	public void shouldIncludeNewProduct() throws Exception {
 		
-		Product product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
+		Product product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_PRETA_JA_ASSOCIADA);
 		
 		productService.add(product);
 		
@@ -68,7 +68,7 @@ public class ProductServiceImplTest extends TestHelper {
 	@Test
 	public void shouldGetProductsFromCache() throws Exception {
 		
-		List<Product> products = from(Product.class).gimme(10, TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
+		List<Product> products = from(Product.class).gimme(10, TemplateLoader.ProductTemplate.CAMISETA_PRETA_JA_ASSOCIADA);
 		
 		when(cache.getList(anyString())).thenReturn(new ArrayList<Object>(products));
 		

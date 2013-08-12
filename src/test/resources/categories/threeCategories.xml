@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<category id="30" description="Eletrodomesticos" />
+	<category id="40" description="Livros" />
+	<category id="40" description="Brinquedos" />
+</dataset>

@@ -22,6 +22,11 @@ public class TemplateLoader {
 		
 		public static final String CAMISETA_BRANCA = "camiseta-branca";
 		
+		public static final String CAMISETA_BRANCA_JA_ASSOCIADA = "camiseta-branca-ja-associada";
+		
+		public static final String CAMISETA_PRETA_JA_ASSOCIADA = "camiseta-branca-ja-associada";
+		
+		
 		public static void loadTemplates() {
 			Fixture.of(ProdutoSpike.class).addTemplate(CAMISETA_BRANCA_FOR_SPIKE,
 			new Rule() {{ 
@@ -33,6 +38,19 @@ public class TemplateLoader {
 				add("description", "Uma camiseta branca marota");
 				add("value", 100.00);
 				add("specifics", one(Specifics.class, SpecificsTemplate.ESPECIFICACOES_CAMISETA));
+			}});
+			
+			Fixture.of(Product.class).addTemplate(CAMISETA_BRANCA_JA_ASSOCIADA,
+			new Rule() {{ 
+				add("id", 1L);
+				add("name", "Camiseta");
+				add("description", "Camiseta StarWars - Darth Vader - Preta");
+			}});				
+			Fixture.of(Product.class).addTemplate(CAMISETA_PRETA_JA_ASSOCIADA,
+			new Rule() {{
+				add("id", 2L);
+				add("name", "Camiseta");
+				add("description", "Camiseta StarWars - Darth Vader - Preta");
 			}});
 		}
 	}

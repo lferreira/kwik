@@ -78,4 +78,19 @@ public class CategoryDaoTest extends TestHelper {
 			assertThat(category.getProducts().size(), is(2));
 		}
 	}
+	
+	@Test
+	public void shouldDestroyCategory() throws Exception {
+		
+		new DBUnitHelper().cleanInsert("/categories/twoCategoriesWith2Products.xml");
+		
+		Category returned = categoryRepository.findBy(1L);
+		
+		categoryRepository.destroy(returned);
+		
+		Collection<Category> categories = categoryRepository.listAll();
+		
+		assertThat(categories.size(), is(1));
+	}
+	
 }

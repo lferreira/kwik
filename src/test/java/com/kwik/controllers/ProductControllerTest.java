@@ -58,7 +58,7 @@ public class ProductControllerTest extends TestHelper {
 	@Test
 	public void shouldExposeProductCatalog() throws Exception {
 		
-		List<Product> products = Fixture.from(Product.class).gimme(4, TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
+		List<Product> products = Fixture.from(Product.class).gimme(4, TemplateLoader.ProductTemplate.CAMISETA_PRETA_JA_ASSOCIADA);
 		
 		when(service.listAll()).thenReturn(products);
 		

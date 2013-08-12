@@ -14,4 +14,6 @@ public interface CategoryRepository {
 
 	Category findBy(Long id);
 
+	void destroy(Category category);
+
 }

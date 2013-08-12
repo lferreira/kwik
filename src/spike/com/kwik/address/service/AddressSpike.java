@@ -13,8 +13,8 @@ public class AddressSpike {
 		
 		try {
 			
-			System.setProperty("http.proxyHost", "proxytur.cvc.com.br");
-			System.setProperty("http.proxyPort", "8080");
+			//System.setProperty("http.proxyHost", "proxytur.cvc.com.br");
+			//System.setProperty("http.proxyPort", "8080");
 			
 			Document doc = connect(String.format("http://m.correios.com.br/movel/buscaCepConfirma.do?cepEntrada=%s&metodo=buscarCep", "03728000")).get();
 			

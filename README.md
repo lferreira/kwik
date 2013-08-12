@@ -15,7 +15,6 @@ de listar todos os produtos e categorias estão com cache com tempo 3 segundos (
 é que tenha um lugar onde você possa cadastrar os tempos, cache de cache operações. Para essa aplicação os tempos e caches
 estão fixos no código e por padrão a aplicação espera que o memcached esteja rodando em "localhost:11211".
 
-
 O Front-end é bem simples, utilizei Jquery para realizar as chamadas aos serviços REST e montar o dinamismo das páginas.
 Separei em alguns arquivos js , e também segui boas práticas como por exemplo , não criar funções anônimas. O código esta 
 meio repetitivo porém esta bem simples de isolar os comportamentos comuns a todas as páginas e para dar uma "cara" melhorzinha utilizei o twitter-bootstrap.
@@ -50,6 +49,9 @@ os mocks , ou seja , toda a tarefa repetitiva e necessária para todos os testes
 Para rodar todos os testes unitários basta executar:
 
 <code> mvn test </code>
+
+A Aplicação foi desenvolvida rodando no Jetty 7 porém testei no Jetty 8 e 9 e Tomcat 7 funcionando perfeitamente.
+
 
 Ambiente
 ============================================================================
@@ -163,6 +165,9 @@ http://dev.mysql.com/doc/refman/5.5/en/windows-installation.html
 
 http://dev.mysql.com/doc/refman/5.1/en/linux-installation.html
 
+
+Jetty
+============================================================================
 
 
 

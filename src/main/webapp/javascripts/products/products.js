@@ -3,9 +3,10 @@ $(document).ready(function(){
 		'list':'/kwik/product/list',
 		'add': '/kwik/product/add', 
 		'clone': function(product, row) {
-			$('td[name=name]', row).text(product.name);
-			$('td[name=description]', row).text(product.description);
-			$('td[name=value]', row).text(product.value);
+			$('a[name=name]', row).text(product.name);
+			$('img[name=image]', row).attr('src', product.image);
+			$('small b[name=value]', row).text(product.value);
+			$('small[name=description]', row).text(product.description);
 		}
 	};
 	form.init();
@@ -44,7 +45,8 @@ var form = {
 			data: {  
 				'product.name' : $('#name').val(),  
 				'product.description' : $('#description').val(),  
-				'product.value' : $('#value').val()
+				'product.value' : $('#value').val(),
+				'product.image' : $('#image').val()
 			},
 			cache: false,  
 			success: function( data ) {  
@@ -56,7 +58,7 @@ var form = {
 		if ($('form')[0]) {
 			$('form')[0].reset();
 		}
-		$('table#list tbody').empty();
+		$('div#preview>ul').empty();
 	},
 	row: function(data) {
 		$.each(data, function() {
@@ -66,8 +68,8 @@ var form = {
 		});
 	},
 	clone: function(product) {
-		var row = $('div#model table>tbody>tr').clone();
-		$('table#list tbody').append(row);
+		var row = $('div#model-preview>ul>li').clone();
+		$('div#preview>ul').append(row);
 		form.config.clone(product, row);
 	}
 }

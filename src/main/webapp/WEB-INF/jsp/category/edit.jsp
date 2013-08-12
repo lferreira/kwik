@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
-		<div id="id">${category.id}</div>
-		<div id="description">${category.description}</div>
+		<div id="id" style="display: none">${category.id}</div>
+		<h4>${category.description}</h4>
 	</div>
 	<div id="products">
 	</div>

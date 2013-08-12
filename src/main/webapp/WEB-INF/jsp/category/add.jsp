@@ -2,7 +2,7 @@
 	<div class="row">
 		<form id="category" class="form-horizontal well" name="category">
 			<div class="control-group">
-				<label class="control-label" for="description">Description</label>
+				<label class="control-label" for="description">Description *</label>
 				<div class="controls">
 					<input name="category.description" id="description" type="text" />
 				</div>

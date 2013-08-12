@@ -32,7 +32,8 @@ public class Product implements Serializable {
 	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
     private LocalDateTime createdAt = LocalDateTime.now();
 	
-	private String image = "http://thumbs.ebaystatic.com/d/w225/m/mnj5TsinM2h75YqNNlyewRQ.jpg";
+	@Column
+	private String image;
 	
 	@OneToOne
 	private Specifics specifics;

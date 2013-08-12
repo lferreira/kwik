@@ -5,6 +5,7 @@ import br.com.six2six.fixturefactory.Rule;
 
 import com.kwik.fixture.ProdutoSpike;
 import com.kwik.infra.security.Encryption;
+import com.kwik.models.Address;
 import com.kwik.models.Category;
 import com.kwik.models.Client;
 import com.kwik.models.Product;
@@ -17,6 +18,7 @@ public class TemplateLoader {
 		TemplateLoader.CategoryTemplate.loadTemplates();
 		TemplateLoader.SpecificsTemplate.loadTemplates();
 		TemplateLoader.ClientTemplate.loadTemplates();
+		TemplateLoader.AddressTemplate.loadTemplates();
 	}
 
 	public static class ProductTemplate {
@@ -101,6 +103,21 @@ public class TemplateLoader {
 			new Rule() {{ 
 				add("email", "joao@test.com");
 				add("password", new Encryption("secret").md5());
+			}});
+		}
+	}
+	
+	public static class AddressTemplate {
+		
+		public static final String ENDERECO = "endereco";
+		
+		public static void loadTemplates() {
+			Fixture.of(Address.class).addTemplate(ENDERECO,
+			new Rule() {{ 
+				add("district", "Penha");
+				add("location", "Sao Paulo");
+				add("street", "Rua da Penha");
+				add("zipCode", "01478520");
 			}});
 		}
 	}

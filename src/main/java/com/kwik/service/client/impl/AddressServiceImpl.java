@@ -12,14 +12,32 @@ import br.com.caelum.vraptor.ioc.Component;
 
 import com.kwik.infra.exception.KwikCommunicationException;
 import com.kwik.models.Address;
+import com.kwik.repositories.client.AddressRespository;
 import com.kwik.service.client.AddressService;
 
 @Component
 public class AddressServiceImpl implements AddressService {
 
+	private AddressRespository repository;
+	
+	public AddressServiceImpl(AddressRespository repository) {
+		this.repository = repository;
+	}
+
 	@Override
 	public Address getAddressBy(String zipCode) {
 		
+		Address address = repository.findBy(zipCode);
+			
+		if (address == null) {
+			address = fromWebservice(zipCode);
+		}
+		
+		return address;
+	}
+	
+	protected Address fromWebservice(String zipCode) {
+	
 		try {
 			
 			Document doc = connect(format("http://m.correios.com.br/movel/buscaCepConfirma.do?cepEntrada=%s&metodo=buscarCep", zipCode)).get();

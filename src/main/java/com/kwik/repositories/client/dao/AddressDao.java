@@ -1,6 +1,7 @@
 package com.kwik.repositories.client.dao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import br.com.caelum.vraptor.ioc.Component;
@@ -21,7 +22,16 @@ public class AddressDao implements AddressRespository {
 	public Address findBy(String zipCode) {
 		Query query = entityManager.createQuery(" FROM " + Address.class.getName() + " a WHERE a.zipCode = :zipCode ");
 		query.setParameter("zipCode", zipCode);
-		return (Address) query.getSingleResult();
+		
+		Address address = null;
+		
+		try {
+			
+			return (Address) query.getSingleResult();
+			
+		} catch (NoResultException e) {}	
+		
+		return address;
 	}
 
 }

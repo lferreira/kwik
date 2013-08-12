@@ -18,5 +18,4 @@ public class ClientServiceImpl implements ClientService {
 		client.setPassword(new Encryption(client.getPassword()).md5());
 		return clientRepository.add(client);
 	}
-
 }

@@ -19,7 +19,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a href="/" class="brand">Kwik E-Commerce</a>
+				<a href="/kwik" class="brand">Kwik E-Commerce</a>
 				<div id="main-menu" class="nav-collapse collapse">
 					<ul id="main-menu-left" class="nav">
 						<li><a id="swatch-link" href="<c:url value="/product/add"/>">Products</a></li>

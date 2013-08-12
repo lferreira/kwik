@@ -3,6 +3,8 @@ package com.kwik.service.client.impl;
 import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -12,6 +14,7 @@ import org.mockito.Mock;
 
 import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.TestHelper;
+import com.kwik.infra.notification.Notification;
 import com.kwik.models.Client;
 import com.kwik.repositories.client.ClientRepository;
 import com.kwik.service.client.ClientService;
@@ -20,6 +23,8 @@ public class ClientServiceImplTest extends TestHelper {
 
 	private @Mock ClientRepository clientRepository;
 	
+	private @Mock Notification notification;
+	
 	private ClientService clientService;
 	
 	private Client joao;
@@ -27,7 +32,7 @@ public class ClientServiceImplTest extends TestHelper {
 	@Before
 	public void setUp() {
 		
-		clientService = new ClientServiceImpl(clientRepository);
+		clientService = new ClientServiceImpl(clientRepository, notification);
 		
 		joao = from(Client.class).gimme(TemplateLoader.ClientTemplate.JOAO);
 	}
@@ -50,4 +55,11 @@ public class ClientServiceImplTest extends TestHelper {
 		
 		assertThat(password, not(returned.getPassword()));
 	}
+	
+	@Test
+	public void shoulNotifyClientWhenResetPassword() throws Exception {
+		clientService.resetPassword(joao);
+		verify(notification).send(any(Client.class), anyString());
+	}
+	
 }

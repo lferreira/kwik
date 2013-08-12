@@ -33,7 +33,6 @@ public class ClientDaoTest extends TestHelper {
 		Client returned = clientRepository.add(joao);
 		
 		assertThat(returned.getEmail(), equalTo(joao.getEmail()));
-		
 	}
 	
 	@Test(expected = PersistenceException.class)

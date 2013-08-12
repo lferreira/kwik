@@ -7,7 +7,7 @@
 					<input name="category.description" id="description" type="text" />
 				</div>
 				<div class="form-actions">	
-					<input name="add" id="btnAdd" value="add" type="button" class="btn btn-primary btn-large nav pull-right" />
+					<input name="add" id="btnAdd" value="add" type="button" class="btn btn-large btn-primary" />
 				</div>
 			</div>
 		</form>

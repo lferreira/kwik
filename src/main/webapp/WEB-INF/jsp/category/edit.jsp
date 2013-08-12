@@ -6,7 +6,7 @@
 	<div id="products">
 	</div>
 	<div class="form-actions">	
-		<input name="add" id="btnAdd" value="associate" type="button" class="btn btn-primary btn-large nav pull-right" />
+		<input name="add" id="btnAdd" value="associate" type="button" class="btn btn-large btn-primary" />
 	</div>
 	<div id="model" style="display: none">
 		<label class="checkbox">

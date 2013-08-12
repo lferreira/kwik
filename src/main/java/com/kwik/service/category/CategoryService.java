@@ -1,4 +1,4 @@
-package com.kwik.service;
+package com.kwik.service.category;
 
 import java.util.Collection;
 import java.util.List;

@@ -14,7 +14,7 @@ import com.kwik.models.Category;
 import com.kwik.models.Product;
 import com.kwik.repositories.category.CategoryRepository;
 import com.kwik.repositories.product.ProductRepository;
-import com.kwik.service.CategoryService;
+import com.kwik.service.category.CategoryService;
 
 @Component
 public class CategoryServiceImpl implements CategoryService {

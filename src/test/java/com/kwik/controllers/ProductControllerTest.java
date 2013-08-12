@@ -24,7 +24,7 @@ import br.com.six2six.fixturefactory.Fixture;
 import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.TestHelper;
 import com.kwik.models.Product;
-import com.kwik.service.ProductService;
+import com.kwik.service.product.ProductService;
 
 public class ProductControllerTest extends TestHelper {
 

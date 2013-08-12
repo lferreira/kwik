@@ -1,4 +1,4 @@
-package com.kwik.service.impl;
+package com.kwik.service.product.impl;
 
 import static com.kwik.infra.cache.time.CacheTime.THREE_SECONDS;
 
@@ -11,7 +11,7 @@ import com.google.common.collect.Lists;
 import com.kwik.infra.cache.Cache;
 import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
-import com.kwik.service.ProductService;
+import com.kwik.service.product.ProductService;
 
 @Component
 public class ProductServiceImpl implements ProductService {

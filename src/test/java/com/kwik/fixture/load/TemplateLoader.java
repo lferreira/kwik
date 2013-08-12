@@ -4,7 +4,9 @@ import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.Rule;
 
 import com.kwik.fixture.ProdutoSpike;
+import com.kwik.infra.security.Encryption;
 import com.kwik.models.Category;
+import com.kwik.models.Client;
 import com.kwik.models.Product;
 import com.kwik.models.Specifics;
 
@@ -14,6 +16,7 @@ public class TemplateLoader {
 		TemplateLoader.ProductTemplate.loadTemplates();
 		TemplateLoader.CategoryTemplate.loadTemplates();
 		TemplateLoader.SpecificsTemplate.loadTemplates();
+		TemplateLoader.ClientTemplate.loadTemplates();
 	}
 
 	public static class ProductTemplate {
@@ -77,6 +80,27 @@ public class TemplateLoader {
 			new Rule() {{ 
 				add("brand", "Hering");
 				add("size", "tamanho P");
+			}});
+		}
+	}
+	
+	public static class ClientTemplate {
+		
+		public static final String JOAO = "joao";
+		
+		public static final String JOAO_COM_SENHA_CRIPTOGRAFADA = "joao-criptografada";
+		
+		public static void loadTemplates() {
+			Fixture.of(Client.class).addTemplate(JOAO,
+			new Rule() {{ 
+				add("email", "joao@test.com");
+				add("password", "secret");
+			}});
+			
+			Fixture.of(Client.class).addTemplate(JOAO_COM_SENHA_CRIPTOGRAFADA,
+			new Rule() {{ 
+				add("email", "joao@test.com");
+				add("password", new Encryption("secret").md5());
 			}});
 		}
 	}

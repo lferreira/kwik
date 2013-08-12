@@ -14,7 +14,7 @@ import br.com.caelum.vraptor.validator.Validations;
 import br.com.caelum.vraptor.view.Results;
 
 import com.kwik.models.Product;
-import com.kwik.service.ProductService;
+import com.kwik.service.product.ProductService;
 
 @Resource
 public class ProductController {

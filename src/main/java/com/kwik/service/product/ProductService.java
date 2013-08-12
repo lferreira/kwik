@@ -1,4 +1,4 @@
-package com.kwik.service;
+package com.kwik.service.product;
 
 import java.util.List;
 

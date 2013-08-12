@@ -20,8 +20,7 @@ import com.kwik.helper.TestHelper;
 import com.kwik.infra.cache.Cache;
 import com.kwik.models.Product;
 import com.kwik.repositories.product.ProductRepository;
-import com.kwik.service.ProductService;
-import com.kwik.service.impl.ProductServiceImpl;
+import com.kwik.service.product.ProductService;
 
 public class ProductServiceImplTest extends TestHelper {
 
@@ -39,7 +38,7 @@ public class ProductServiceImplTest extends TestHelper {
 	@Test
 	public void shouldIncludeNewProduct() throws Exception {
 		
-		Product product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_PRETA_JA_ASSOCIADA);
+		Product product = from(Product.class).gimme(TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
 		
 		productService.add(product);
 		
@@ -68,7 +67,7 @@ public class ProductServiceImplTest extends TestHelper {
 	@Test
 	public void shouldGetProductsFromCache() throws Exception {
 		
-		List<Product> products = from(Product.class).gimme(10, TemplateLoader.ProductTemplate.CAMISETA_PRETA_JA_ASSOCIADA);
+		List<Product> products = from(Product.class).gimme(10, TemplateLoader.ProductTemplate.CAMISETA_BRANCA);
 		
 		when(cache.getList(anyString())).thenReturn(new ArrayList<Object>(products));
 		

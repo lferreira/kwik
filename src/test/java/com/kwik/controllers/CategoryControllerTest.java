@@ -24,7 +24,7 @@ import br.com.six2six.fixturefactory.Fixture;
 import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.TestHelper;
 import com.kwik.models.Category;
-import com.kwik.service.CategoryService;
+import com.kwik.service.category.CategoryService;
 
 public class CategoryControllerTest extends TestHelper {
 	

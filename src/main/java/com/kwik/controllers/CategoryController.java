@@ -14,7 +14,7 @@ import br.com.caelum.vraptor.validator.Validations;
 import br.com.caelum.vraptor.view.Results;
 
 import com.kwik.models.Category;
-import com.kwik.service.CategoryService;
+import com.kwik.service.category.CategoryService;
 
 @Resource
 public class CategoryController {

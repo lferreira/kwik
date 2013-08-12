@@ -35,7 +35,7 @@ public class AddressServiceImpl implements AddressService {
 			return new Address().street(street).district(district).location(location).zipCode(zipCode);
 			
 		} catch (IOException e) {
-			throw new KwikCommunicationException("problem communicating with the correios webservice", e);
+			throw new KwikCommunicationException("problem communicating with correios webservice", e);
 		}
 		
 	}

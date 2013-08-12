@@ -4,6 +4,9 @@ $(document).ready(function(){
 
 var form = {
 	init: function() {
+		$('#btnAssociate').on(function(){
+			form.associate();
+		});
 		form.list();
 	},
 	list: function() {

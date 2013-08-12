@@ -169,12 +169,16 @@ http://dev.mysql.com/doc/refman/5.1/en/linux-installation.html
 Jetty
 ============================================================================
 
-* Download
+* Mac
+
+Download
 
 http://jetty.codehaus.org/jetty/
 http://www.eclipse.org/jetty/downloads.php
 
 Iniciando
+
+No diretório de instalação do Jetty:
 
 <code>$ java -jar start.jar</code>
 

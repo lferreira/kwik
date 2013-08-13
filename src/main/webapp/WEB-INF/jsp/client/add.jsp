@@ -25,3 +25,5 @@
 		</form>
 	</div>
 </div>
+<script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/clients/clients.js"></script>

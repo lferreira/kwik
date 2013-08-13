@@ -5,7 +5,7 @@ import com.kwik.models.Client;
 
 public interface ClientService {
 
-	Client add(Client client);
+	Client add(Client client, String zipCode);
 
 	void resetPassword(Client joao);
 

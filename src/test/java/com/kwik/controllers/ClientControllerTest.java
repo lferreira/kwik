@@ -31,9 +31,9 @@ public class ClientControllerTest extends TestHelper {
 	@Test
 	public void shouldIncludeNewClient() throws Exception {
 		
-		controller.add(joao);
+		controller.add(joao, "");
 		
-		verify(service).add(joao);
+		verify(service).add(joao, "");
 	}
 	
 	@Test

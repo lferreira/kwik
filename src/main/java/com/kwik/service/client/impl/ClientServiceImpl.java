@@ -27,8 +27,9 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public Client add(Client client) {
+	public Client add(Client client, String zipCode) {
 		client.setPassword(new Encryption(client.getPassword()).md5());
+		client.setAddress(addressService.getAddressBy(zipCode));
 		return clientRepository.add(client);
 	}
 

@@ -43,7 +43,7 @@ public class ClientServiceImplTest extends TestHelper {
 	@Test
 	public void shouldIncludeNewClient() throws Exception {
 		
-		clientService.add(joao);
+		clientService.add(joao, "");
 		
 		verify(clientRepository).add(joao);
 	}
@@ -55,7 +55,7 @@ public class ClientServiceImplTest extends TestHelper {
 		
 		when(clientRepository.add(joao)).thenReturn((Client) from(Client.class).gimme(TemplateLoader.ClientTemplate.JOAO_COM_SENHA_CRIPTOGRAFADA));
 		
-		Client returned = clientService.add(joao);
+		Client returned = clientService.add(joao, "");
 		
 		assertThat(password, not(returned.getPassword()));
 	}

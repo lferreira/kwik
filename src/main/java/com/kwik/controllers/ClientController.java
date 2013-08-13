@@ -20,8 +20,8 @@ public class ClientController {
 	public void add() {}
 	
 	@Post
-	public void add(Client client) {
-		service.add(client);
+	public void add(Client client, String zipCode) {
+		service.add(client, zipCode);
 	}
 
 	public void resetPassword(Client client) {

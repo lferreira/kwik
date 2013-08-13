@@ -1,4 +1,4 @@
-package com.kwik.infra.secutiry;
+package com.kwik.infra.security;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;

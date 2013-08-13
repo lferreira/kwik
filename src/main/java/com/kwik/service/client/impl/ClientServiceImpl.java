@@ -6,7 +6,7 @@ import br.com.caelum.vraptor.ioc.Component;
 
 import com.kwik.infra.notification.Notification;
 import com.kwik.infra.security.Encryption;
-import com.kwik.infra.secutiry.Password;
+import com.kwik.infra.security.Password;
 import com.kwik.models.Address;
 import com.kwik.models.Client;
 import com.kwik.repositories.client.ClientRepository;

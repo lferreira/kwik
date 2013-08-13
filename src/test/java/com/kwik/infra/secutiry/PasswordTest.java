@@ -7,6 +7,8 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
+import com.kwik.infra.security.Password;
+
 public class PasswordTest {
 	
 	@Test

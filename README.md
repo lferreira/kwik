@@ -183,4 +183,17 @@ No diretório de instalação do Jetty:
 <code>$ java -jar start.jar</code>
 
 
+Crawler - Busca Cep Correios
+============================================================================
+
+Para buscar endereço a partir do cep , criei um crawler para buscar as informações do site dos correios.
+Se você tiver abaixo de um proxy provavelmente tenha que setar as informações do mesmo.
+
+na Classe AddressServiceImpl descomentar as linhas e adicionar as informações.
+
+<code>
+System.setProperty("http.proxyHost", "xxxxxx");
+System.setProperty("http.proxyPort", "xxxx");
+</code>
+
 

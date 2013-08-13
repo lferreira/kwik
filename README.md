@@ -191,7 +191,8 @@ Se você tiver abaixo de um proxy provavelmente tenha que setar as informações
 
 na Classe AddressServiceImpl descomentar as linhas e adicionar as informações.
 
-<code>System.setProperty("http.proxyHost", "xxxxxx");</code></br>
-<code>System.setProperty("http.proxyPort", "xxxx");</code>
+System.setProperty("http.proxyHost", "xxxxxx");
+
+System.setProperty("http.proxyPort", "xxxx");
 
 

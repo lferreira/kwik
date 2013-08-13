@@ -40,8 +40,8 @@ public class AddressServiceImpl implements AddressService {
 	
 		try {
 			
-			System.setProperty("http.proxyHost", "proxytur.cvc.com.br");
-			System.setProperty("http.proxyPort", "8080");
+//			System.setProperty("http.proxyHost", "proxytur.cvc.com.br");
+//			System.setProperty("http.proxyPort", "8080");
 			
 			Document doc = connect(format("http://m.correios.com.br/movel/buscaCepConfirma.do?cepEntrada=%s&metodo=buscarCep", zipCode)).get();
 			

@@ -14,8 +14,10 @@ var form = {
 		$('#btnAdd').click(function(){
 			form.add();
 		});
+		form.list();
 	},
 	list: function() {
+		form.clear();
 		$.ajax({  
 			type: 'GET',  
 			url: '/kwik/client/list',
@@ -59,25 +61,27 @@ var form = {
 			cache: false,  
 			success: function( data ) {  
 				alert('Success!');
+				form.list();
 			}  
 		});  
 	},
 	clear: function() {
 		if ($('form')[0]) {
 			$('form')[0].reset();
-		}	
+		}
+		$('table#list tbody').empty();
 	},
 	row: function(data) {
 		$.each(data, function() {
-			$.each(this, function(k, category) {
-				form.clone(category);
+			$.each(this, function(k, client) {
+				form.clone(client);
 			});
 		});
 	},
-	clone: function(row) {
+	clone: function(client) {
 		var row = $('div#model table>tbody>tr').clone();
 		$('table#list tbody').append(row);
-		$('td[name=id]', row).text(category.id);
-		$('td[name=email]', row).text(category.email);		
+		$('td[name=id]', row).text(client.id);
+		$('td[name=email]', row).text(client.email);		
 	}
 }

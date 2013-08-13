@@ -4,8 +4,11 @@ import static br.com.six2six.fixturefactory.Fixture.from;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
+import java.util.List;
+
 import javax.persistence.PersistenceException;
 
+import org.jstryker.database.DBUnitHelper;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,6 +41,17 @@ public class ClientDaoTest extends TestHelper {
 	@Test(expected = PersistenceException.class)
 	public void shouldValidateClient() throws Exception {
 		clientRepository.add(new Client());
+	}
+
+	@Test
+	public void shouldListClients() throws Exception {
+		
+		new DBUnitHelper().cleanInsert("/clients/twoClients.xml");
+		
+		List<Client> clients = clientRepository.listAll();
+		
+		assertThat(clients.size(), equalTo(2));
+		
 	}
 	
 }

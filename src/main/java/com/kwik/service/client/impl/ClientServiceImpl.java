@@ -1,5 +1,7 @@
 package com.kwik.service.client.impl;
 
+import java.util.List;
+
 import br.com.caelum.vraptor.ioc.Component;
 
 import com.kwik.infra.notification.Notification;
@@ -42,5 +44,10 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public Address getAddressBy(String zipCode) {
 		return addressService.getAddressBy(zipCode);
+	}
+
+	@Override
+	public List<Client> listAll() {
+		return clientRepository.listAll();
 	}
 }

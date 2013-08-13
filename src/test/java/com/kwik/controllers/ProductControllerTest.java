@@ -19,7 +19,6 @@ import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
 import br.com.caelum.vraptor.validator.ValidationException;
 import br.com.caelum.vraptor.view.Results;
-import br.com.six2six.fixturefactory.Fixture;
 
 import com.kwik.fixture.load.TemplateLoader;
 import com.kwik.helper.TestHelper;
@@ -58,7 +57,7 @@ public class ProductControllerTest extends TestHelper {
 	@Test
 	public void shouldExposeProductCatalog() throws Exception {
 		
-		List<Product> products = Fixture.from(Product.class).gimme(4, TemplateLoader.ProductTemplate.CAMISETA_PRETA_JA_ASSOCIADA);
+		List<Product> products = from(Product.class).gimme(4, TemplateLoader.ProductTemplate.CAMISETA_PRETA_JA_ASSOCIADA);
 		
 		when(service.listAll()).thenReturn(products);
 		

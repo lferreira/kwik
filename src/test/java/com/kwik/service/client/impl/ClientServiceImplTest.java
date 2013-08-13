@@ -73,4 +73,13 @@ public class ClientServiceImplTest extends TestHelper {
 		clientService.getAddressBy(anyString());
 		verify(addressService).getAddressBy(anyString());
 	}
+	
+	@Test
+	public void shouldListClients() throws Exception {
+		
+		clientService.listAll();
+		
+		verify(clientRepository).listAll();
+	}
+	
 }

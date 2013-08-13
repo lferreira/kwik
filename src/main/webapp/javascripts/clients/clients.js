@@ -8,14 +8,26 @@ var form = {
 		$('#zipCode').blur(function() {
 			var zipCode = $('#zipCode').val();
 			if (zipCode) {
-				form.list(zipCode);
+				form.get_address(zipCode);
 			}	
 		});
 		$('#btnAdd').click(function(){
 			form.add();
 		});
 	},
-	list: function(zipCode) {
+	list: function() {
+		$.ajax({  
+			type: 'GET',  
+			url: '/kwik/client/list',
+			cache: false,  
+			success: function( data ) {  
+				if (data != null) {
+					form.row(data);
+				}
+			}  
+		}); 				
+	},
+	get_address: function(zipCode) {
 	    $.ajax({  
 			type: 'GET',  
 			url: '/kwik/address/get',
@@ -46,7 +58,7 @@ var form = {
 			},
 			cache: false,  
 			success: function( data ) {  
-				form.list();
+				alert('Success!');
 			}  
 		});  
 	},
@@ -54,5 +66,18 @@ var form = {
 		if ($('form')[0]) {
 			$('form')[0].reset();
 		}	
+	},
+	row: function(data) {
+		$.each(data, function() {
+			$.each(this, function(k, category) {
+				form.clone(category);
+			});
+		});
+	},
+	clone: function(row) {
+		var row = $('div#model table>tbody>tr').clone();
+		$('table#list tbody').append(row);
+		$('td[name=id]', row).text(category.id);
+		$('td[name=email]', row).text(category.email);		
 	}
 }

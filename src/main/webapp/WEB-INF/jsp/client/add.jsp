@@ -39,6 +39,26 @@
 			</div>
 		</form>
 	</div>
+	<div class="well">
+		<table class="table" id="list">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>email</th>
+				</tr>	
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<div id="model" style="display: none">
+		<table>
+			<tr>
+				<td name="id">&nbsp;</td>
+				<td name="email">&nbsp;</td>
+			</tr>	
+		</table>	
+	</div>
 </div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/clients/clients.js"></script>
